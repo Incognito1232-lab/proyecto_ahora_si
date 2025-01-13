@@ -1,0 +1,152 @@
+/* Variables de diseño */
+:root {
+    --primary-color: #0056D2; /* Azul elegante */
+    --primary-hover-color: #003EA1;
+    --background-color: #F3F6FA; /* Fondo claro profesional */
+    --text-color: #333333; /* Texto oscuro */
+    --form-background: #FFFFFF; /* Fondo del formulario */
+    --border-color: #CCCCCC; /* Bordes suaves */
+    --font-family: 'Poppins', sans-serif; /* Fuente moderna y profesional */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+/* Estilo base */
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Encabezado */
+header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 2px solid var(--primary-color);
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+    padding-bottom: 8px;
+}
+
+/* Contenedor del formulario */
+.form-container {
+    background-color: var(--form-background);
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px var(--shadow-color);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Grupos del formulario */
+.form-group {
+    text-align: left;
+}
+
+label {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Campos de entrada */
+select {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 16px;
+    color: var(--text-color);
+    background-color: var(--form-background);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+}
+
+select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(0, 86, 210, 0.3);
+    outline: none;
+}
+
+/* Botón principal */
+button {
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #FFFFFF;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100%;
+}
+
+button:hover {
+    background-color: var(--primary-hover-color);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Botón de retroceso */
+.back-button-container {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #FFFFFF;
+    background-color: var(--primary-color);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: var(--primary-hover-color);
+    transform: translateY(-2px);
+}
+
+.back-button:active {
+    transform: translateY(0);
+}
+
+/* Adaptabilidad */
+@media (max-width: 480px) {
+    .form-container {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    button, .back-button {
+        font-size: 14px;
+    }
+}

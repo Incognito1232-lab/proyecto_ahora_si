@@ -1,0 +1,132 @@
+/* General styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box; /* Asegura que el padding y border no causen desbordamientos */
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif; /* Tipografía consistente */
+    background-color: #f4f6f9;
+    color: #333;
+    line-height: 1.6;
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #212121;
+    color: #fff;
+    padding: 20px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Career container styles */
+.career-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 80px; /* Evita que la navbar cubra el contenido */
+    padding: 20px 20px;
+    text-align: center;
+}
+
+.career-box {
+    display: block;
+    width: 30%; /* Ajustamos para que los recuadros se distribuyan mejor */
+    height: 200px;
+    background-color: #ffffff;
+    color: #212121;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 200px; /* Centrado vertical */
+    text-decoration: none;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    margin: 15px 0; /* Reducción del margen */
+    transition: all 0.3s ease;
+}
+
+.career-box:hover {
+    background-color: #ff9800;
+    color: #fff;
+    transform: translateY(-5px); /* Efecto de elevación */
+}
+
+/* Back button styles */
+.back-button-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #212121; /* Ahora combina mejor con la navbar */
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #333333; /* Color más oscuro al pasar el ratón */
+    transform: translateY(-5px); /* Efecto de elevación */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .navbar {
+        font-size: 1.2rem;
+        padding: 15px 20px;
+    }
+
+    .career-container {
+        padding: 30px 15px;
+        flex-direction: column;
+    }
+
+    .career-box {
+        width: 100%; /* Los recuadros ocuparán todo el ancho en pantallas pequeñas */
+        height: 200px;
+        font-size: 1.25rem;
+        line-height: 200px; /* Centrado vertical */
+        margin-bottom: 20px;
+    }
+
+    .back-button-container {
+        margin-top: 20px;
+    }
+}

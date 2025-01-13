@@ -1,0 +1,97 @@
+/* Fondo de la página */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom right, #6dd5fa, #2980b9);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor del formulario */
+.login-container {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Título */
+h2 {
+    margin-bottom: 20px;
+    color: #34495e;
+    font-size: 24px;
+}
+
+/* Estilo para grupos de entradas */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Etiquetas */
+label {
+    font-size: 14px;
+    color: #2c3e50;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Campos de entrada */
+input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #2c3e50;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+/* Efectos en el enfoque */
+input:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+/* Botón */
+button {
+    background: linear-gradient(to right, #6dd5fa, #2980b9);
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+}
+
+/* Efectos en el botón */
+button:hover {
+    background: linear-gradient(to right, #2980b9, #6dd5fa);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsividad */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 20px 25px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+}

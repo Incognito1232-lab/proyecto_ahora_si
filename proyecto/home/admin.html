@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración</title>
+    <link rel="stylesheet" href="../static/admin.css">
+</head>
+<body>
+    <header>
+        <h1>Panel de Administración</h1>
+    </header>
+
+    <main>
+        <div class="content">
+            <!-- Div superior -->
+            <div class="top-section">
+                <h2>Bienvenido al Panel de Administración</h2>
+                <p>Gestiona las opciones y la información desde aquí.</p>
+            </div>
+
+            <!-- Div inferior dividido en dos -->
+            <div class="bottom-sections">
+                <div class="bottom-left">
+                    <h3>Agregar Administrador</h3>
+                    <form action="../config/agregar_admin.php" method="POST">
+                        <div class="form-group">
+                            <label for="admin_usuario">Nombre de Usuario:</label>
+                            <input type="text" id="admin_usuario" name="admin_usuario" required>
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="admin_contrasena">Contraseña:</label>
+                            <input type="password" id="admin_contrasena" name="admin_contrasena" required>
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="admin_nombre">Nombre:</label>
+                            <input type="text" id="admin_nombre" name="admin_nombre" required>
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="admin_correo">Correo Electrónico:</label>
+                            <input type="email" id="admin_correo" name="admin_correo" required>
+                        </div>
+                
+                        <button type="submit">Agregar Administrador</button>
+                    </form>
+                </div>
+
+                <!-- Sección para subir un archivo -->
+                <div class="bottom-right">
+                    <h3>Subir Nuevo Archivo</h3>
+                    <p id="mensaje" style="color: green; display: none;"></p>
+                    <p id="error" style="color: red; display: none;"></p>
+                    <form id="formArchivo" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="archivo_nom">Nombre del archivo:</label>
+                            <input type="text" id="archivo_nom" name="archivo_nom" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="archivo_ruta">Seleccionar archivo:</label>
+                            <input type="file" id="archivo_ruta" name="archivo_ruta" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ciclo_num">Número de Ciclo:</label>
+                            <input type="number" id="ciclo_num" name="ciclo_num" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="malla_id">ID de Malla:</label>
+                            <input type="number" id="malla_id" name="malla_id" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cur_id">ID del Curso:</label>
+                            <input type="text" id="cur_id" name="cur_id" required>
+                        </div>
+
+                        <button type="button" id="subirArchivo">Subir Archivo</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Nueva sección para gestión de archivos (Eliminar, Buscar) -->
+            <div class="bottom-sections">
+                <div class="bottom-left">
+                    <h3>Eliminar Administrador</h3>
+                    <form action="../config/eliminar_admin.php" method="POST">
+                        <div class="form-group">
+                            <label for="admin_id">ID del Administrador:</label>
+                            <input type="number" id="admin_id" name="admin_id" required>
+                        </div>
+
+                        <button type="submit">Eliminar Administrador</button>
+                    </form>
+                </div>
+
+                <div class="bottom-right">
+                    <h3>Eliminar Archivo</h3>
+                    <form action="../config/eliminar_archivo.php" method="POST" id="formEliminarArchivo">
+                        <!-- Eliminar Archivo por ID o Nombre -->
+                        <div class="form-group">
+                            <label for="archivo_id">ID del Archivo (opcional):</label>
+                            <input type="number" id="archivo_id" name="archivo_id">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="archivo_nom_buscar">Nombre del Archivo (opcional):</label>
+                            <input type="text" id="archivo_nom_buscar" name="archivo_nom_buscar">
+                        </div>
+
+                        <button type="submit">Eliminar Archivo</button>
+                    </form>
+
+                    <!-- Mensajes de resultado -->
+                    <p id="mensajeEliminar" style="color: green; display: none;"></p>
+                    <p id="errorEliminar" style="color: red; display: none;"></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Manejar el envío del formulario de "Subir Archivo"
+        document.getElementById('subirArchivo').addEventListener('click', async () => {
+            const form = document.getElementById('formArchivo');
+            const formData = new FormData(form);
+            const mensaje = document.getElementById('mensaje');
+            const error = document.getElementById('error');
+
+            try {
+                const response = await fetch('../config/subir_archivo.php', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                const result = await response.text();
+                if (response.ok) {
+                    mensaje.style.display = 'block';
+                    mensaje.textContent = result;
+                    error.style.display = 'none';
+                    form.reset(); // Limpiar el formulario
+                } else {
+                    error.style.display = 'block';
+                    error.textContent = result;
+                    mensaje.style.display = 'none';
+                }
+            } catch (e) {
+                error.style.display = 'block';
+                error.textContent = 'Error al conectar con el servidor.';
+                mensaje.style.display = 'none';
+            }
+        });
+
+        // Manejar el envío del formulario de "Eliminar Archivo"
+        document.getElementById('formEliminarArchivo').addEventListener('submit', async (e) => {
+            e.preventDefault(); // Evita el envío del formulario tradicional
+
+            const form = new FormData(e.target);
+            const mensajeEliminar = document.getElementById('mensajeEliminar');
+            const errorEliminar = document.getElementById('errorEliminar');
+
+            try {
+                // Enviar la solicitud al PHP con AJAX
+                const response = await fetch('../config/eliminar_archivo.php', {
+                    method: 'POST',
+                    body: form
+                });
+
+                const result = await response.text();
+
+                // Si la operación fue exitosa
+                if (response.ok) {
+                    mensajeEliminar.style.display = 'block';
+                    mensajeEliminar.textContent = result;
+                    errorEliminar.style.display = 'none';
+                    e.target.reset(); // Limpiar el formulario
+                } else {
+                    errorEliminar.style.display = 'block';
+                    errorEliminar.textContent = result;
+                    mensajeEliminar.style.display = 'none';
+                }
+            } catch (e) {
+                errorEliminar.style.display = 'block';
+                errorEliminar.textContent = 'Error al conectar con el servidor.';
+                mensajeEliminar.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

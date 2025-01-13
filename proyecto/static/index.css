@@ -1,0 +1,102 @@
+/* General styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box; /* Esto asegura que el padding y border no causen desbordamientos */
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    line-height: 1.6;
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #212121;
+    color: #fff;
+    padding: 20px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box; /* Aseguramos que el padding no cause desbordamiento */
+    transition: all 0.3s ease;
+}
+
+.navbar-left {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap; /* Asegura que el texto no se divida */
+}
+
+.navbar-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-right a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 1.125rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.navbar-right a:hover {
+    color: #ff9800;
+    transform: scale(1.1);
+}
+
+/* Main content styles */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    padding: 20px;
+    text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px; /* Ajuste del padding para evitar el desbordamiento */
+    }
+
+    .navbar-left {
+        margin-bottom: 10px;
+        font-size: 1.8rem;
+    }
+
+    .navbar-right a {
+        margin-left: 0;
+        margin-right: 15px;
+        font-size: 1rem;
+    }
+
+    .main-content {
+        padding: 40px 20px;
+        background: linear-gradient(135deg, #e9ecef, #d1d9e6);
+    }
+
+    .main-content p {
+        font-size: 1.25rem;
+    }
+}

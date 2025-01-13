@@ -1,0 +1,143 @@
+/* Variables de diseño */
+:root {
+    --primary-color: #0056D2; /* Azul elegante */
+    --primary-hover-color: #003EA1;
+    --background-color: #F3F6FA; /* Fondo claro profesional */
+    --text-color: #333333; /* Texto oscuro */
+    --form-background: #FFFFFF; /* Fondo del formulario */
+    --border-color: #CCCCCC; /* Bordes suaves */
+    --font-family: 'Poppins', sans-serif; /* Fuente moderna y profesional */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+/* Estilo base */
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* Encabezado */
+header {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Contenido principal */
+main {
+    padding: 20px;
+}
+
+/* Sección superior */
+.top-section {
+    background-color: var(--form-background);
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    text-align: center;
+}
+
+.top-section h2 {
+    font-size: 20px;
+    color: var(--primary-color);
+}
+
+.top-section p {
+    color: var(--text-color);
+}
+
+/* Divisiones inferiores */
+.bottom-sections {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.bottom-left, .bottom-right {
+    flex: 1;
+    background-color: var(--form-background);
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+.bottom-left h3, .bottom-right h3 {
+    font-size: 18px;
+    color: var(--primary-color);
+}
+
+.bottom-left p, .bottom-right p {
+    color: var(--text-color);
+}
+
+/* Estilo para las nuevas secciones */
+.bottom-sections .bottom-left h3,
+.bottom-sections .bottom-right h3 {
+    font-size: 18px;
+    color: var(--primary-color);
+}
+
+.bottom-sections .bottom-left form,
+.bottom-sections .bottom-right form {
+    margin-top: 15px;
+}
+
+.bottom-sections .bottom-left .form-group,
+.bottom-sections .bottom-right .form-group {
+    margin-bottom: 15px;
+}
+
+.bottom-sections .bottom-left input[type="text"],
+.bottom-sections .bottom-right input[type="number"],
+.bottom-sections .bottom-left button,
+.bottom-sections .bottom-right button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 16px;
+    color: var(--text-color);
+    background-color: var(--form-background);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bottom-sections .bottom-left input[type="text"]:focus,
+.bottom-sections .bottom-right input[type="number"]:focus,
+.bottom-sections .bottom-left button:hover,
+.bottom-sections .bottom-right button:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(0, 86, 210, 0.3);
+    outline: none;
+}
+
+.bottom-sections .bottom-left button:hover,
+.bottom-sections .bottom-right button:hover {
+    background-color: var(--primary-hover-color);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 20px;
+        width: 90%;
+    }
+
+    .form-container h3 {
+        font-size: 20px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    button {
+        font-size: 14px;
+    }
+}
