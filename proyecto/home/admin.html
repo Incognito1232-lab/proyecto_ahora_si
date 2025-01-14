@@ -5,17 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administración</title>
     <link rel="stylesheet" href="../static/admin.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const cargarCursos = async () => {
+                try {
+                    const response = await fetch('../config/listar_cursos.php');
+                    const data = await response.json(); // Parsear la respuesta JSON
+    
+                    const tablaBody = document.querySelector('#tabla_cursos tbody');
+                    tablaBody.innerHTML = ''; // Limpiar la tabla
+    
+                    // Verificar si hubo un error
+                    if (data.error) {
+                        tablaBody.innerHTML = `<tr><td colspan="5" style="color: red;">${data.message}</td></tr>`;
+                    } else {
+                        if (Array.isArray(data.data)) {
+                            data.data.forEach(curso => {
+                                const row = `
+                                    <tr>
+                                        <td>${curso.cur_id}</td>
+                                        <td>${curso.cur_nom}</td>
+                                        <td>${curso.ciclo_num}</td>
+                                        <td>${curso.malla_anio}</td>
+                                        <td>
+                                            <button class="btn-modificar" onclick="modificarCurso('${curso.cur_id}')">✏️</button>
+                                        </td>
+                                    </tr>
+                                `;
+                                tablaBody.innerHTML += row;
+                            });
+                        } else {
+                            tablaBody.innerHTML = `<tr><td colspan="5" style="color: red;">No hay datos disponibles.</td></tr>`;
+                        }
+                    }
+                } catch (error) {
+                    console.error('Error al cargar los cursos:', error);
+                    const tablaBody = document.querySelector('#tabla_cursos tbody');
+                    tablaBody.innerHTML = `<tr><td colspan="5" style="color: red;">Error al cargar los datos.</td></tr>`;
+                }
+            };
+    
+            // Función que se llamará al hacer clic en el botón de modificar
+            window.modificarCurso = (cur_id) => {
+                console.log('Modificar curso con ID:', cur_id);
+                // Aquí puedes agregar la lógica para modificar el curso
+                // Por ejemplo, podrías abrir un modal con un formulario prellenado
+            };
+    
+            cargarCursos(); // Llamar a la función al cargar la página
+        });
+    </script>
 </head>
 <body>
     <header>
-        <h1>Panel de Administración</h1>
+        <h1>Administración</h1>
     </header>
 
     <main>
         <div class="content">
             <!-- Div superior -->
             <div class="top-section">
-                <h2>Bienvenido al Panel de Administración</h2>
+                <h2>Bienvenido al Panel Administrativo</h2>
                 <p>Gestiona las opciones y la información desde aquí.</p>
             </div>
 
@@ -153,7 +203,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="malla_anio">Malla:</label>
+                                <label for="malla_anio">Malla Perteneciente:</label>
                                 <select id="malla_anio" name="malla_anio" required>
                                     <option value="">Seleccione una malla</option>
                                     <option value="2019">Malla 2019</option>
@@ -161,7 +211,7 @@
                             </div>
                             
                             <div class="form-group">
-                                <label for="ciclo_num">Ciclo:</label>
+                                <label for="ciclo_num">Ciclo Perteneciente:</label>
                                 <select id="ciclo_num" name="ciclo_num" required>
                                     <option value="">Seleccione un ciclo</option>
                                     <option value="1">Ciclo 1</option>
@@ -184,7 +234,7 @@
                         <!-- Barra de búsqueda -->
                         <div class="form-group">
                             <label for="buscar_curso">Buscar Curso:</label>
-                            <input type="text" id="buscar_curso" name="buscar_curso" placeholder="Buscar curso...">
+                            <input type="text" id="buscar_curso" name="buscar_curso" placeholder="...">
                         </div>
 
                         <!-- Tabla de cursos -->
@@ -195,17 +245,35 @@
                                     <th>Nombre</th>
                                     <th>Ciclo</th>
                                     <th>Malla</th>
+                                    <th>Modificar</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- Aquí se rellenarán los datos de los cursos -->
+                                <!-- Las filas se cargarán dinámicamente con JavaScript -->
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
+
         </div>
     </main>
+
+    <script>
+        document.getElementById("buscar_curso").addEventListener("input", function () {
+            const searchValue = this.value.toLowerCase();
+            const rows = document.querySelectorAll("#tabla_cursos tbody tr");
+
+            rows.forEach((row) => {
+                const rowText = row.textContent.toLowerCase();
+                if (rowText.includes(searchValue)) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        });
+    </script>
 
     <script>
         // Manejar el envío del formulario de "Subir Archivo"
