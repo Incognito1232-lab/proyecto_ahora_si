@@ -54,10 +54,82 @@ if (isset($_POST['ciclo']) && isset($_POST['malla']) && isset($_POST['carrera'])
     // Obtener los resultados de la consulta
     $resultado = $stmt->get_result();
 
+    // Incluir los estilos CSS en la página
+    echo "<!DOCTYPE html>
+    <html lang='es'>
+    <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <title>Cursos</title>
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f3f4f7;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+            }
+            .container {
+                width: 90%;
+                max-width: 800px;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+            .container h2 {
+                text-align: center;
+                color: #333;
+                margin-bottom: 20px;
+                font-size: 1.5rem;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 10px;
+            }
+            th, td {
+                text-align: left;
+                padding: 10px;
+                border: 1px solid #ddd;
+            }
+            th {
+                background-color: #4CAF50;
+                color: white;
+                text-align: center;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            tr:hover {
+                background-color: #f1f1f1;
+            }
+            td a {
+                color: #4CAF50;
+                text-decoration: none;
+                font-weight: bold;
+            }
+            td a:hover {
+                text-decoration: underline;
+            }
+            .no-courses {
+                text-align: center;
+                color: #555;
+                font-size: 1.2em;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class='container'>";
+
     // Mostrar los resultados obtenidos
     echo "<h2>Cursos del Ciclo $ciclo en la Malla $malla para la carrera $carrera</h2>";
     if ($resultado->num_rows > 0) { // Comprobar si se encontraron resultados.
-        echo "<table border='1'><tr><th>Nombre del Curso</th><th>Acción</th></tr>";
+        echo "<table><tr><th>Nombre del Curso</th><th>Acción</th></tr>";
         // Recorrer cada curso y mostrarlo en una tabla HTML
         while ($curso = $resultado->fetch_assoc()) {
             echo "<tr>
@@ -68,7 +140,7 @@ if (isset($_POST['ciclo']) && isset($_POST['malla']) && isset($_POST['carrera'])
         echo "</table>";
     } else {
         // Mostrar un mensaje si no se encontraron cursos
-        echo "<p>No se encontraron cursos para esta selección.</p>";
+        echo "<p class='no-courses'>No se encontraron cursos para esta selección.</p>";
     }
 
     // Liberar recursos
@@ -76,6 +148,10 @@ if (isset($_POST['ciclo']) && isset($_POST['malla']) && isset($_POST['carrera'])
     $stmt_carrera->close(); // Cerrar la declaración de la consulta de carrera.
     $stmt_malla->close(); // Cerrar la declaración de la consulta de malla.
     $conexion->close(); // Cerrar la conexión a la base de datos.
+
+    echo "    </div>
+    </body>
+    </html>";
 } else {
     // Mensaje de error si no se recibieron los datos necesarios
     echo "<p>Error: No se recibieron datos válidos.</p>";
