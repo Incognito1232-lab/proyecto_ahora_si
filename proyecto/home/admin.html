@@ -120,6 +120,90 @@
                     <p id="errorEliminar" style="color: red; display: none;"></p>
                 </div>
             </div>
+
+            <!-- Nueva sección para gestión de cursos (Eliminar, Crear) -->
+            <div class="bottom-sections">
+                <div class="bottom-left-right">
+                    <div class="left-section">
+                        <h3>Gestión de Cursos</h3>
+                        <form action="../config/gestion_cursos.php" method="POST" id="formGestionCursos">
+                            <div class="form-group">
+                                <label for="cur_id">Código del Curso:</label>
+                                <input type="text" id="cur_id" name="cur_id" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cur_nom">Nombre del Curso:</label>
+                                <input type="text" id="cur_nom" name="cur_nom" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cur_cred">Número de Créditos:</label>
+                                <input type="text" id="cur_cred" name="cur_cred" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="carr_nom">Carrera Perteneciente:</label>
+                                <select id="carr_nom" name="carr_nom" required>
+                                    <option value="">Seleccione un ciclo</option>
+                                    <option value="Economía">Economía</option>
+                                    <option value="Gestión Empresarial">Gestión Empresarial</option>
+                                    <option value="Estadística">Estadística</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="malla_anio">Malla:</label>
+                                <select id="malla_anio" name="malla_anio" required>
+                                    <option value="">Seleccione una malla</option>
+                                    <option value="2019">Malla 2019</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="ciclo_num">Ciclo:</label>
+                                <select id="ciclo_num" name="ciclo_num" required>
+                                    <option value="">Seleccione un ciclo</option>
+                                    <option value="1">Ciclo 1</option>
+                                    <option value="2">Ciclo 2</option>
+                                    <option value="3">Ciclo 3</option>
+                                </select>
+                            </div>
+
+                            <button type="submit">Enviar</button>
+                        </form>
+
+                        <!-- Mensajes de resultado -->
+                        <p id="mensajeEliminar" style="color: green; display: none;"></p>
+                        <p id="errorEliminar" style="color: red; display: none;"></p>
+                    </div>
+
+                    <div class="right-section">
+                        <h3>Otras Opciones</h3>
+
+                        <!-- Barra de búsqueda -->
+                        <div class="form-group">
+                            <label for="buscar_curso">Buscar Curso:</label>
+                            <input type="text" id="buscar_curso" name="buscar_curso" placeholder="Buscar curso...">
+                        </div>
+
+                        <!-- Tabla de cursos -->
+                        <table id="tabla_cursos">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Nombre</th>
+                                    <th>Ciclo</th>
+                                    <th>Malla</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Aquí se rellenarán los datos de los cursos -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
