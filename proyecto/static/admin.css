@@ -246,7 +246,7 @@ main {
 }
 
 .right-section th, .right-section td {
-    padding: 12px;
+    padding: 10px;
     text-align: left;
 }
 
@@ -262,6 +262,149 @@ main {
 
 .right-section tbody tr:hover {
     background-color: rgba(0, 86, 210, 0.1);
+}
+
+/* Centrando el contenido de la celda de la columna "Modificar" */
+.col-modificar,
+.col-modificar button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.btn-modificar {
+    background-color: white; /* Fondo blanco */
+    border: 1px solid var(--border-color); /* Borde */
+    border-radius: 0; /* Botón cuadrado */
+    color: #0056D2; /* Color del ícono de lápiz */
+    cursor: pointer;
+    width: 50px; /* Ancho del botón */
+    height: 30px; /* Altura del botón */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Transición */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-modificar:hover {
+    background-color: #e0f0ff; /* Fondo al pasar el cursor */
+    border-color: #0056D2; /* Borde al pasar el cursor */
+}
+
+/* Estilizar el ícono de Font Awesome */
+.btn-modificar i {
+    color: #0056D2; /* Color azul */
+    font-size: 16px; /* Tamaño del ícono */
+}
+
+/* Estilo para el modal */
+.modal {
+    display: none; /* Ocultar por defecto */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+    animation: fadeIn 0.5s ease-in-out; /* Animación de entrada */
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto; /* Reducir margen superior */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Reducir ancho */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+    animation: slideIn 0.5s ease-in-out; /* Animación de entrada */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes slideIn {
+    from {transform: translateY(-50px);}
+    to {transform: translateY(0);}
+}
+
+/* Estilo de los elementos del formulario */
+.modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.modal-content .form-group {
+    margin-bottom: 15px;
+}
+
+.modal-content .form-group label {
+    font-weight: bold;
+}
+
+.modal-content .form-group input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.modal-content .form-group input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(0, 86, 210, 0.3);
+    outline: none;
+}
+
+.modal-content .form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.modal-content button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+    background-color: var(--primary-color-dark);
+}
+
+/* Estilo del botón de cancelar */
+.modal-content #btnCancelar {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.modal-content #btnCancelar:hover {
+    background-color: #ddd;
 }
 
 /* Responsividad */

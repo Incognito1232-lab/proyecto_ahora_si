@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administración</title>
     <link rel="stylesheet" href="../static/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const cargarCursos = async () => {
@@ -28,7 +29,7 @@
                                         <td>${curso.ciclo_num}</td>
                                         <td>${curso.malla_anio}</td>
                                         <td>
-                                            <button class="btn-modificar" onclick="modificarCurso('${curso.cur_id}')">✏️</button>
+                                            <button class="btn-modificar" style="width: 90px; height: 30px; display: flex; justify-content: center; align-items: center;" onclick="modificarCurso('${curso.cur_id}')"><i class="fas fa-pencil-alt"></i></button>
                                         </td>
                                     </tr>
                                 `;
@@ -189,13 +190,13 @@
 
                             <div class="form-group">
                                 <label for="cur_cred">Número de Créditos:</label>
-                                <input type="text" id="cur_cred" name="cur_cred" required>
+                                <input type="number" id="cur_cred" name="cur_cred" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="carr_nom">Carrera Perteneciente:</label>
                                 <select id="carr_nom" name="carr_nom" required>
-                                    <option value="">Seleccione un ciclo</option>
+                                    <option value="">Seleccione una carrera</option>
                                     <option value="Economía">Economía</option>
                                     <option value="Gestión Empresarial">Gestión Empresarial</option>
                                     <option value="Estadística">Estadística</option>
@@ -256,8 +257,217 @@
                 </div>
             </div>
 
+            <!-- Modal -->
+            <div id="modalModificar" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Modificar Curso</h2>
+                    <form id="formModificarCurso">
+                        <div class="form-group">
+                            <label for="modal_cur_id">Código del Curso:</label>
+                            <input type="text" id="modal_cur_id" name="cur_id"> <!-- Se ha quitado readonly -->
+                        </div>
+                        <div class="form-group">
+                            <label for="modal_cur_nom">Nombre del Curso:</label>
+                            <input type="text" id="modal_cur_nom" name="cur_nom">
+                        </div>
+                        <div class="form-group">
+                            <label for="modal_cur_cred">Número de Créditos:</label>
+                            <input type="text" id="modal_cur_cred" name="cur_cred">
+                        </div>
+                        <div class="form-group">
+                            <label for="modal_malla_id">Año de Malla Curricular:</label>
+                            <select id="modal_malla_id" name="malla_id"></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal_ciclo_num">Ciclo:</label>
+                            <input type="text" id="modal_ciclo_num" name="ciclo_num">
+                        </div>
+                        <div class="form-group">
+                            <label for="modal_carr_id">Carrera Perteneciente:</label>
+                            <select id="modal_carr_id" name="carr_id"></select>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit">Guardar Cambios</button>
+                            <button type="button" id="btnCancelar">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
         </div>
     </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            // Función para cargar opciones de malla y carrera
+            const cargarOpciones = async () => {
+                try {
+                    const response = await fetch('../config/get_options.php');
+                    const result = await response.json();
+    
+                    if (result.error) {
+                        console.error('Error al obtener las opciones:', result.message);
+                        return;
+                    }
+    
+                    const mallas = result.data.mallas;
+                    const carreras = result.data.carreras;
+    
+                    // Rellenar las opciones de mallas
+                    const mallaSelect = document.getElementById('modal_malla_id');
+                    mallas.forEach(malla => {
+                        const option = document.createElement('option');
+                        option.value = malla.malla_id;
+                        option.text = malla.malla_anio;
+                        mallaSelect.appendChild(option);
+                    });
+    
+                    // Rellenar las opciones de carreras
+                    const carreraSelect = document.getElementById('modal_carr_id');
+                    carreras.forEach(carrera => {
+                        const option = document.createElement('option');
+                        option.value = carrera.carr_id;
+                        option.text = carrera.carr_nom;
+                        carreraSelect.appendChild(option);
+                    });
+                } catch (error) {
+                    console.error('Error en la solicitud:', error);
+                }
+            };
+    
+            // Llamar a la función para cargar las opciones
+            await cargarOpciones();
+    
+            // Función que se llamará al hacer clic en el botón de modificar
+            window.modificarCurso = async (cur_id) => {
+                console.log('Modificar curso con ID:', cur_id);
+    
+                try {
+                    // Consultar la información del curso
+                    const response = await fetch(`../config/get_curso.php?cur_id=${cur_id}`);
+                    const result = await response.json();
+    
+                    if (result.error) {
+                        console.error('Error al obtener el curso:', result.message);
+                        return;
+                    }
+    
+                    const curso = result.data;
+    
+                    // Verificar que los datos existen antes de asignarlos a los campos del formulario
+                    if (curso) {
+                        document.getElementById('modal_cur_id').value = curso.cur_id || '';
+                        document.getElementById('modal_cur_nom').value = curso.cur_nom || '';
+                        document.getElementById('modal_cur_cred').value = curso.cur_cred || '';
+                        document.getElementById('modal_malla_id').value = curso.malla_id || '';
+                        document.getElementById('modal_ciclo_num').value = curso.ciclo_num || '';
+                        document.getElementById('modal_carr_id').value = curso.carrera_id || '';
+                    } else {
+                        console.error('No se encontraron datos del curso.');
+                    }
+    
+                    // Mostrar el modal
+                    const modal = document.getElementById('modalModificar');
+                    modal.style.display = "block";
+                } catch (error) {
+                    console.error('Error en la solicitud:', error);
+                }
+            };
+    
+            // Obtener el elemento de cerrar
+            const span = document.querySelector('.close');
+    
+            // Cuando el usuario hace clic en (x), cierra el modal
+            span.onclick = function() {
+                const modal = document.getElementById('modalModificar');
+                modal.style.display = "none";
+            };
+    
+            // Cuando el usuario hace clic fuera del modal, cierra el modal
+            window.onclick = function(event) {
+                const modal = document.getElementById('modalModificar');
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            };
+    
+            // Cuando el usuario hace clic en el botón de cancelar, cierra el modal
+            const btnCancelar = document.getElementById('btnCancelar');
+            btnCancelar.onclick = function() {
+                const modal = document.getElementById('modalModificar');
+                modal.style.display = "none";
+            };
+        });
+    </script>
+        
+    <script>
+        // Manejar el formulario de guardar cambios
+        document.getElementById('formModificarCurso').onsubmit = async function(event) {
+            event.preventDefault();
+
+            const data = new FormData(this);
+
+            try {
+                const response = await fetch('../config/update_curso.php', {
+                    method: 'POST',
+                    body: data
+                });
+                const result = await response.json();
+
+                if (result.error) {
+                    console.error('Error al actualizar el curso:', result.message);
+                    return;
+                }
+
+                // Actualizar la tabla con los nuevos datos
+                cargarCursos();
+
+                // Cerrar el modal
+                const modal = document.getElementById('modalModificar');
+                modal.style.display = "none";
+            } catch (error) {
+                console.error('Error en la solicitud:', error);
+            }
+        };
+
+        // Función para cargar la tabla de cursos
+        const cargarCursos = async () => {
+            try {
+                const response = await fetch('../config/listar_cursos.php');
+                const data = await response.json();
+
+                const tablaBody = document.querySelector('#tabla_cursos tbody');
+                tablaBody.innerHTML = '';
+
+                if (data.error) {
+                    tablaBody.innerHTML = `<tr><td colspan="5" style="color: red;">${data.message}</td></tr>`;
+                } else {
+                    data.data.forEach(curso => {
+                        const row = `
+                            <tr>
+                                <td>${curso.cur_id}</td>
+                                <td>${curso.cur_nom}</td>
+                                <td>${curso.ciclo_num}</td>
+                                <td>${curso.malla_anio}</td>
+                                <td>
+                                    <button class="btn-modificar" style="width: 90px; height: 30px; display: flex; justify-content: center; align-items: center;" onclick="modificarCurso('${curso.cur_id}')"><i class="fas fa-pencil-alt"></i></button>
+                                </td>
+                            </tr>
+                        `;
+                        tablaBody.innerHTML += row;
+                    });
+                }
+            } catch (error) {
+                console.error('Error al cargar los cursos:', error);
+                const tablaBody = document.querySelector('#tabla_cursos tbody');
+                tablaBody.innerHTML = `<tr><td colspan="5" style="color: red;">Error al cargar los datos.</td></tr>`;
+            }
+        };
+
+        // Llamar a la función para cargar la tabla al inicio
+        cargarCursos();
+    </script>
 
     <script>
         document.getElementById("buscar_curso").addEventListener("input", function () {
