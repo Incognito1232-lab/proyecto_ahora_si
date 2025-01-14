@@ -96,6 +96,10 @@ main {
 }
 
 .bottom-sections .bottom-left input[type="text"],
+.bottom-sections .bottom-left input[type="password"],
+.bottom-sections .bottom-left input[type="email"],
+.bottom-sections .bottom-left input[type="number"],
+.bottom-sections .bottom-right input[type="text"],
 .bottom-sections .bottom-right input[type="number"],
 .bottom-sections .bottom-left button,
 .bottom-sections .bottom-right button {
@@ -110,6 +114,10 @@ main {
 }
 
 .bottom-sections .bottom-left input[type="text"]:focus,
+.bottom-sections .bottom-left input[type="password"]:focus,
+.bottom-sections .bottom-left input[type="email"]:focus,
+.bottom-sections .bottom-left input[type="number"]:focus,
+.bottom-sections .bottom-right input[type="text"]:focus,
 .bottom-sections .bottom-right input[type="number"]:focus,
 .bottom-sections .bottom-left button:hover,
 .bottom-sections .bottom-right button:hover {
@@ -136,6 +144,24 @@ main {
     box-shadow: 0 0 8px rgba(0, 86, 210, 0.3);
     outline: none;
 }
+
+/* Estilo para el campo de selección de archivo */
+.bottom-right input[type="file"] {
+    border: 1px solid var(--border-color); /* Borde */
+    border-radius: 6px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de la fuente */
+    padding: 8px; /* Relleno */
+    background-color: var(--form-background); /* Fondo */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transiciones */
+}
+
+.bottom-right input[type="file"]:hover,
+.bottom-right input[type="file"]:focus {
+    border-color: var(--primary-color); /* Borde al pasar el cursor */
+    box-shadow: 0 0 8px rgba(0, 86, 210, 0.3); /* Sombra al enfocar */
+    outline: none; /* Sin borde de enfoque */
+}
+
 
 /* Bloque de gestion de cursos */
 
@@ -183,6 +209,7 @@ main {
 }
 
 .bottom-sections .bottom-left-right input[type="text"],
+.bottom-sections .bottom-left-right input[type="number"],
 .bottom-sections .bottom-left-right button{
     width: 93%;
     padding: 5px;
@@ -195,6 +222,7 @@ main {
 }
 
 .bottom-sections .bottom-left-right input[type="text"]:focus,
+.bottom-sections .bottom-left-right input[type="number"]:focus,
 .bottom-sections .bottom-left-right button:hover{
     border-color: var(--primary-color);
     box-shadow: 0 0 8px rgba(0, 86, 210, 0.3);

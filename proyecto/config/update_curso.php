@@ -42,7 +42,7 @@ $sql = "
         cur_cred = ?,
         malla_id = ?,
         ciclo_num = ?,
-        carrer_id = ?
+        carrera_id = ?
     WHERE cur_id = ?
 ";
 
