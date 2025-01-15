@@ -13,7 +13,208 @@ body {
     line-height: 1.6;
     font-size: 1.125rem;
     font-weight: 400;
+}/* General styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    line-height: 1.6;
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1e1e2f;
+    color: #fff;
+    padding: 15px 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar:hover {
+    background-color: #292940;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-left {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #ff9800;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left i {
+    margin-right: 10px;
+    font-size: 2rem;
+}
+
+.navbar-right {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-right a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-right a:hover {
+    color: #ff9800;
+    transform: translateY(-3px);
+}
+
+.navbar-right a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: #ff9800;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.navbar-right a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Main content styles */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+    padding: 20px;
+    background: linear-gradient(135deg, #ece9f1, #d5dae3);
+    text-align: center;
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    margin: 80px 20px 20px 20px;
+}
+
+.main-content h1 {
+    font-size: 2.5rem;
+    color: #1e1e2f;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.main-content p {
+    font-size: 1.25rem;
+    max-width: 800px;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+/* Call-to-action button */
+.main-content .btn {
+    padding: 10px 20px;
+    font-size: 1.125rem;
+    color: #fff;
+    background-color: #ff9800;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.main-content .btn i {
+    font-size: 1.2rem;
+}
+
+.main-content .btn:hover {
+    background-color: #e68900;
+    transform: scale(1.05);
+}
+
+/* Footer styles */
+.footer {
+    background-color: #1e1e2f;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.footer a {
+    color: #ff9800;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #e68900;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+    }
+
+    .navbar-left {
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+    }
+
+    .navbar-right {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .main-content {
+        padding: 30px 15px;
+        margin: 100px 10px 10px 10px;
+    }
+
+    .main-content h1 {
+        font-size: 2rem;
+    }
+
+    .main-content p {
+        font-size: 1rem;
+    }
+}
+
 
 /* Navbar styles */
 .navbar {
@@ -98,5 +299,101 @@ body {
 
     .main-content p {
         font-size: 1.25rem;
+    }
+}
+/* General styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Comic Neue', sans-serif; /* Tipografía amigable */
+    background-color: #f4f6f9;
+    color: #333;
+    line-height: 1.6;
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #212121;
+    color: #fff;
+    padding: 20px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sutil sombra */
+}
+
+.navbar-left {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre el icono y el texto */
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 25px; /* Espacio uniforme entre los enlaces */
+}
+
+.navbar-right a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.125rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre el icono y el texto */
+}
+
+.navbar-right a:hover {
+    color: #ff9800; /* Color de resaltado al pasar el mouse */
+    transform: scale(1.1);
+}
+
+/* Main content styles */
+.main-content {
+    min-height: calc(100vh - 80px);
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    padding: 20px;
+    text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+    }
+
+    .navbar-left {
+        font-size: 1.8rem;
+    }
+
+    .navbar-right {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .navbar-right a {
+        font-size: 1rem;
     }
 }

@@ -1,132 +1,164 @@
-/* General styles */
-*,
-*::before,
-*::after {
-    box-sizing: border-box; /* Asegura que el padding y border no causen desbordamientos */
+/* Variables de diseño */
+:root {
+    --primary-color: #FF7F00; /* Naranja */
+    --primary-hover-color: #F56B00; /* Naranja más oscuro para hover */
+    --background-color: #FFFFFF; /* Fondo blanco para el cuerpo */
+    --text-color: #333333; /* Texto negro */
+    --card-background: #FF7F00; /* Fondo de las cajas */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Sombras ligeras */
+    --font-family: 'Comic Neue', sans-serif; /* Tipografía Comic Neue */
 }
 
+/* Estilo base */
 body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
     margin: 0;
-    font-family: 'Roboto', sans-serif; /* Tipografía consistente */
-    background-color: #f4f6f9;
-    color: #333;
-    line-height: 1.6;
-    font-size: 1.125rem;
-    font-weight: 400;
-}
-
-/* Navbar styles */
-.navbar {
+    padding: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    background-color: #212121;
-    color: #fff;
-    padding: 20px 40px;
-    position: fixed;
-    top: 0;
-    left: 0;
+    min-height: 100vh;
+}
+
+/* Barra de navegación */
+.navbar {
     width: 100%;
-    z-index: 1000;
-    font-size: 1.5rem;
+    background-color: #333333; /* Barra de navegación en negro */
+    color: #FFFFFF;
+    padding: 20px;
+    text-align: center;
+    font-size: 26px;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 1s ease-out;
+    box-shadow: 0px 4px 6px var(--shadow-color);
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Career container styles */
+/* Contenedor de carreras */
 .career-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     flex-wrap: wrap;
-    margin-top: 80px; /* Evita que la navbar cubra el contenido */
-    padding: 20px 20px;
-    text-align: center;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px 20px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
+/* Caja de cada carrera */
 .career-box {
-    display: block;
-    width: 30%; /* Ajustamos para que los recuadros se distribuyan mejor */
-    height: 200px;
-    background-color: #ffffff;
-    color: #212121;
-    font-size: 1.25rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    line-height: 200px; /* Centrado vertical */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px; /* Tamaño más grande */
+    height: 200px; /* Altura ajustada */
+    background-color: var(--card-background);
+    border-radius: 12px;
     text-decoration: none;
-    border-radius: 10px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    margin: 15px 0; /* Reducción del margen */
-    transition: all 0.3s ease;
+    color: var(--text-color);
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    position: relative;
+}
+
+.career-box i {
+    font-size: 56px; /* Iconos más grandes */
+    color: #FFFFFF;
+    margin-bottom: 15px;
 }
 
 .career-box:hover {
-    background-color: #ff9800;
-    color: #fff;
-    transform: translateY(-5px); /* Efecto de elevación */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px var(--shadow-color);
 }
 
-/* Back button styles */
+/* Botón de retroceso */
 .back-button-container {
-    text-align: center;
     margin-top: 30px;
+    text-align: center;
 }
 
 .back-button {
     display: inline-block;
-    padding: 12px 24px;
-    font-size: 1rem;
-    color: #ffffff;
-    background-color: #212121; /* Ahora combina mejor con la navbar */
-    border: none;
-    border-radius: 5px;
-    text-transform: uppercase;
-    text-decoration: none;
+    padding: 12px 25px;
+    font-size: 18px;
     font-weight: 600;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease-in-out, transform 0.3s ease;
+    color: #FFFFFF;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .back-button:hover {
-    background-color: #333333; /* Color más oscuro al pasar el ratón */
-    transform: translateY(-5px); /* Efecto de elevación */
+    background-color: var(--primary-hover-color);
+    transform: translateY(-2px);
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-    .navbar {
-        font-size: 1.2rem;
-        padding: 15px 20px;
-    }
+.back-button:active {
+    transform: translateY(0);
+}
 
-    .career-container {
-        padding: 30px 15px;
-        flex-direction: column;
-    }
-
+/* Adaptabilidad para pantallas pequeñas */
+@media (max-width: 1024px) {
     .career-box {
-        width: 100%; /* Los recuadros ocuparán todo el ancho en pantallas pequeñas */
-        height: 200px;
-        font-size: 1.25rem;
-        line-height: 200px; /* Centrado vertical */
-        margin-bottom: 20px;
+        width: 220px; /* Ajuste del tamaño en tablets */
+        height: 180px;
     }
 
-    .back-button-container {
-        margin-top: 20px;
+    .career-box i {
+        font-size: 48px;
+    }
+
+    .navbar {
+        font-size: 24px;
+    }
+
+    .back-button {
+        font-size: 16px;
     }
 }
+
+@media (max-width: 768px) {
+    .career-box {
+        width: 180px; /* Ajuste del tamaño en móviles */
+        height: 150px;
+    }
+
+    .career-box i {
+        font-size: 40px;
+    }
+
+    .navbar {
+        font-size: 20px;
+    }
+
+    .back-button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .career-box {
+        width: 160px; /* Ajuste aún más en pantallas muy pequeñas */
+        height: 130px;
+    }
+
+    .career-box i {
+        font-size: 36px;
+    }
+
+    .navbar {
+        font-size: 18px;
+    }
+
+    .back-button {
+        font-size: 12px;
+    }
+}
+    

@@ -1,14 +1,17 @@
 /* Variables de diseño */
 :root {
-    --primary-color: #0056D2; /* Azul elegante */
-    --primary-hover-color: #003EA1;
-    --background-color: #F3F6FA; /* Fondo claro profesional */
+    --primary-color: #FF6F00; /* Anaranjado */
+    --primary-hover-color: #FF4500; /* Anaranjado más oscuro para hover */
+    --background-color: #F3F6FA; /* Fondo claro */
     --text-color: #333333; /* Texto oscuro */
     --form-background: #FFFFFF; /* Fondo del formulario */
     --border-color: #CCCCCC; /* Bordes suaves */
-    --font-family: 'Poppins', sans-serif; /* Fuente moderna y profesional */
+    --font-family: 'Comic Neue', sans-serif; /* Fuente 'Comic Neue' */
     --shadow-color: rgba(0, 0, 0, 0.1); /* Sombra ligera */
 }
+
+/* Asegurarse de que la fuente 'Comic Neue' se aplique correctamente */
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
 
 /* Estilo base */
 body {
@@ -24,16 +27,17 @@ body {
 }
 
 /* Encabezado */
+header {
+    text-align: center;
+    margin-bottom: 30px; /* Mayor espacio entre el título y el formulario */
+}
+
 header h1 {
     font-size: 28px;
     font-weight: 700;
     color: var(--primary-color);
-    margin-bottom: 20px;
-    text-align: center;
     border-bottom: 2px solid var(--primary-color);
-    display: block;
-    margin: 0 auto;
-    width: fit-content;
+    display: inline-block;
     padding-bottom: 8px;
 }
 
@@ -46,6 +50,9 @@ header h1 {
     max-width: 400px;
     width: 100%;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 /* Formulario */
@@ -80,10 +87,11 @@ select {
     width: 100%;
 }
 
+/* Eliminar borde y sombra al hacer focus */
 select:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 8px rgba(0, 86, 210, 0.3);
-    outline: none;
+    border-color: var(--border-color); /* El borde permanece igual */
+    box-shadow: none; /* Elimina la sombra */
+    outline: none; /* Elimina el contorno por defecto */
 }
 
 /* Botón principal */
@@ -98,6 +106,11 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
     width: 100%;
+    margin-top: 10px; /* Separación superior entre el botón y el contenido */
+}
+
+button i {
+    margin-right: 10px;
 }
 
 button:hover {
@@ -112,7 +125,9 @@ button:active {
 /* Botón de retroceso */
 .back-button-container {
     margin-top: 30px;
-    text-align: center;
+    display: flex;
+    justify-content: center; /* Alineación centrada */
+    width: 100%;
 }
 
 .back-button {
@@ -125,6 +140,10 @@ button:active {
     border-radius: 6px;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.back-button i {
+    margin-right: 10px;
 }
 
 .back-button:hover {
