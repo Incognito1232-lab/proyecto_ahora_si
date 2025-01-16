@@ -62,10 +62,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Ejecutar la consulta
         if ($stmt->execute()) {
-            echo "Curso agregado correctamente.";
-            // Redirigir a una página de éxito o realizar otra acción según sea necesario
+            // Redirigir a la página de administración después de agregar el curso
+            header("Location: ../home/admin.html?success=1"); // Puedes agregar un parámetro de éxito si lo deseas
+            exit(); // Asegúrate de salir después de redirigir
         } else {
-            echo "Error al agregar curso: " . $stmt->error;
+            // Manejar el error de inserción
+            $_SESSION['error'] = "Error al agregar curso: " . $stmt->error;
+            header("Location: ../home/admin.html?error=1"); // Redirigir con un parámetro de error
+            exit();
         }
 
         // Cerrar la declaración
