@@ -273,6 +273,22 @@ main {
     border: 1px solid var(--border-color);
 }
 
+.table-container {
+    max-height: 200px; /* Ajusta la altura máxima según sea necesario */
+    overflow-y: auto; /* Habilita el desplazamiento vertical */
+    border: 1px solid #ccc; /* Opcional: agrega un borde para mayor claridad */
+}
+
+.table-container {
+    max-height: 400px; /* Ajusta la altura máxima según sea necesario */
+    overflow-y: auto; /* Habilita el desplazamiento vertical */
+    border: 1px solid #ccc; /* Opcional: agrega un borde para mayor claridad */
+}
+
+#tabla_cursos tbody tr {
+    height: 30px; /* Ajusta la altura de las filas según sea necesario */
+}
+
 .right-section th, .right-section td {
     padding: 10px;
     text-align: left;
