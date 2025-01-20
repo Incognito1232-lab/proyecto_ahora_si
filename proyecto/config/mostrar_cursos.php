@@ -23,17 +23,17 @@ if (isset($_POST['ciclo']) && isset($_POST['malla']) && isset($_POST['carrera'])
         exit; // Terminar el script si no se encuentra la carrera
     }
 
-    // Consultar el ID de la malla correspondiente a la carrera y malla seleccionada
-    $query_malla = "SELECT malla_id FROM mallacurricular WHERE malla_anio = ? AND carr_id = ?";
+    // Consultar el ID de la malla correspondiente a la carrera seleccionada
+    $query_malla = "SELECT malla_id FROM mallacurricular WHERE malla_anio = ?";
     $stmt_malla = $conexion->prepare($query_malla);
-    $stmt_malla->bind_param("ii", $malla, $carrera_id); // Vincular el año de la malla y el ID de la carrera
+    $stmt_malla->bind_param("s", $malla); // Vincular el año de la malla
     $stmt_malla->execute();
     $resultado_malla = $stmt_malla->get_result();
     
     if ($resultado_malla->num_rows > 0) {
         $malla_id = $resultado_malla->fetch_assoc()['malla_id']; // Obtener el ID de la malla
     } else {
-        echo "<p>No se encontró la malla seleccionada para esta carrera.</p>";
+        echo "<p>No se encontró la malla seleccionada.</p>";
         exit; // Terminar el script si no se encuentra la malla
     }
 

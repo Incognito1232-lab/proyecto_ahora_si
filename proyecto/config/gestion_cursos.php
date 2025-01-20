@@ -1,6 +1,9 @@
 <?php
-// Iniciar sesión
-session_start();
+header('Content-Type: application/json'); // Encabezado JSON
+
+// Mostrar errores PHP (para desarrollo)
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 // Conectar a la base de datos
 $servername = "localhost";
@@ -12,7 +15,11 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Verificar la conexión
 if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
+    echo json_encode([
+        "error" => true,
+        "message" => "Conexión fallida: " . $conn->connect_error
+    ]);
+    exit();
 }
 
 // Comprobar si el formulario fue enviado
@@ -21,35 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $cur_id = $_POST['cur_id'];
     $cur_nom = $_POST['cur_nom'];
     $cur_cred = $_POST['cur_cred'];
-    $carr_nom = $_POST['carr_nom'];
-    $malla_anio = $_POST['malla_anio'];
+    $carr_id = $_POST['carr_nom']; // Usar carr_id en lugar de carr_nom
+    $malla_id = $_POST['malla_anio']; // Usar malla_id en lugar de malla_anio
     $ciclo_num = $_POST['ciclo_num'];
-
-    // Obtener malla_id basado en malla_anio
-    $sql_malla = "SELECT malla_id FROM mallacurricular WHERE malla_anio = ?";
-    if ($stmt_malla = $conn->prepare($sql_malla)) {
-        $stmt_malla->bind_param("i", $malla_anio);
-        $stmt_malla->execute();
-        $stmt_malla->bind_result($malla_id);
-        $stmt_malla->fetch();
-        $stmt_malla->close();
-    } else {
-        echo "Error en la preparación de la consulta de malla: " . $conn->error;
-        exit();
-    }
-
-    // Obtener carrera_id basado en carr_nom
-    $sql_carrera = "SELECT carr_id FROM carrera WHERE carr_nom = ?";
-    if ($stmt_carrera = $conn->prepare($sql_carrera)) {
-        $stmt_carrera->bind_param("s", $carr_nom);
-        $stmt_carrera->execute();
-        $stmt_carrera->bind_result($carrera_id);
-        $stmt_carrera->fetch();
-        $stmt_carrera->close();
-    } else {
-        echo "Error en la preparación de la consulta de carrera: " . $conn->error;
-        exit();
-    }
 
     // Consulta SQL para insertar el nuevo curso
     $sql = "INSERT INTO curso (cur_id, cur_nom, cur_cred, malla_id, ciclo_num, carrera_id)
@@ -58,24 +39,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Preparar la consulta
     if ($stmt = $conn->prepare($sql)) {
         // Vincular los parámetros
-        $stmt->bind_param("ssiiii", $cur_id, $cur_nom, $cur_cred, $malla_id, $ciclo_num, $carrera_id);
+        $stmt->bind_param("ssiiii", $cur_id, $cur_nom, $cur_cred, $malla_id, $ciclo_num, $carr_id);
 
         // Ejecutar la consulta
         if ($stmt->execute()) {
-            // Redirigir a la página de administración después de agregar el curso
-            header("Location: ../home/admin.html?success=1"); // Puedes agregar un parámetro de éxito si lo deseas
-            exit(); // Asegúrate de salir después de redirigir
+            echo json_encode([
+                "error" => false,
+                "message" => "Curso agregado correctamente."
+            ]);
         } else {
-            // Manejar el error de inserción
-            $_SESSION['error'] = "Error al agregar curso: " . $stmt->error;
-            header("Location: ../home/admin.html?error=1"); // Redirigir con un parámetro de error
-            exit();
+            echo json_encode([
+                "error" => true,
+                "message" => "Error al agregar curso: " . $stmt->error
+            ]);
         }
 
         // Cerrar la declaración
         $stmt->close();
     } else {
-        echo "Error en la preparación de la consulta: " . $conn->error;
+        echo json_encode([
+            "error" => true,
+            "message" => "Error en la preparación de la consulta: " . $conn->error
+        ]);
     }
 }
 

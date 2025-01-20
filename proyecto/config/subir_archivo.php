@@ -1,7 +1,9 @@
 <?php
+// Configurar la respuesta en formato JSON
+header('Content-Type: application/json');
+
 // Inicializar mensajes
-$mensaje = "";
-$error = "";
+$response = array("error" => false, "message" => "");
 
 // Conexión a la base de datos
 $servername = "localhost";
@@ -13,7 +15,10 @@ $conn = new mysqli($servername, $username, $password, $database);
 
 // Verificar la conexión
 if ($conn->connect_error) {
-    die("Error de conexión: " . $conn->connect_error);
+    $response["error"] = true;
+    $response["message"] = "Error de conexión: " . $conn->connect_error;
+    echo json_encode($response);
+    exit;
 }
 
 // Verificar si el formulario fue enviado
@@ -33,15 +38,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO archivo (archivo_nom, archivo_ruta, ciclo_num, malla_id, cur_id) 
                 VALUES ('$archivo_nom', '$archivo_ruta', $ciclo_num, $malla_id, '$cur_id')";
 
-        if ($conn->query($sql) === TRUE) {
-            $mensaje = "El archivo se subió y se registró correctamente.";
-        } else {
-            $error = "Error al registrar en la base de datos: " . $conn->error;
+        if ($conn->query($sql) !== TRUE) {
+            $response["error"] = true;
+            $response["message"] = "Error al registrar en la base de datos: " . $conn->error;
         }
     } else {
-        $error = "Error al subir el archivo.";
+        $response["error"] = true;
+        $response["message"] = "Error al subir el archivo.";
     }
 }
 
 $conn->close();
+echo json_encode($response);
 ?>

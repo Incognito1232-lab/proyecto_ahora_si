@@ -126,8 +126,11 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="malla_id">ID de Malla:</label>
-                            <input type="number" id="malla_id" name="malla_id" required>
+                            <label for="malla_id">Malla Curricular:</label>
+                            <select id="malla_id" name="malla_id" required>
+                                <option value="">Seleccione una malla</option>
+                                <!-- Opciones dinámicas se cargarán aquí -->
+                            </select>
                         </div>
 
                         <div class="form-group">
@@ -154,24 +157,16 @@
                     </form>
                 </div>
 
+                <!-- Sección para eliminar un archivo -->
                 <div class="bottom-right">
                     <h3>Eliminar Archivo</h3>
                     <form action="../config/eliminar_archivo.php" method="POST" id="formEliminarArchivo">
-                        <!-- Eliminar Archivo por ID o Nombre -->
                         <div class="form-group">
-                            <label for="archivo_id">ID del Archivo:</label>
-                            <input type="number" id="archivo_id" name="archivo_id" required>
+                            <label for="archivo_nom_buscar">Nombre del Archivo:</label>
+                            <input type="text" id="archivo_nom_buscar" name="archivo_nom_buscar" required>
                         </div>
-
-                        <div class="form-group">
-                            <label for="archivo_nom_buscar">Nombre del Archivo (opcional):</label>
-                            <input type="text" id="archivo_nom_buscar" name="archivo_nom_buscar">
-                        </div>
-
                         <button type="submit">Eliminar Archivo</button>
                     </form>
-
-                    <!-- Mensajes de resultado -->
                     <p id="mensajeEliminar" style="color: green; display: none;"></p>
                     <p id="errorEliminar" style="color: red; display: none;"></p>
                 </div>
@@ -181,54 +176,51 @@
             <div class="bottom-sections">
                 <div class="bottom-left-right">
                     <div class="left-section">
-                        <h3>Agregar de Cursos</h3>
-                        <form action="../config/gestion_cursos.php" method="POST" id="formGestionCursos">
-                            <div class="form-group">
-                                <label for="cur_id">Código del Curso:</label>
-                                <input type="text" id="cur_id" name="cur_id" required>
-                            </div>
+                        <h3>Agregar Curso</h3>
+                            <form action="../config/gestion_cursos.php" method="POST" id="formGestionCursos">
+                                <div class="form-group">
+                                    <label for="cur_id">Código del Curso:</label>
+                                    <input type="text" id="cur_id" name="cur_id" required>
+                                </div>
 
-                            <div class="form-group">
-                                <label for="cur_nom">Nombre del Curso:</label>
-                                <input type="text" id="cur_nom" name="cur_nom" required>
-                            </div>
+                                <div class="form-group">
+                                    <label for="cur_nom">Nombre del Curso:</label>
+                                    <input type="text" id="cur_nom" name="cur_nom" required>
+                                </div>
 
-                            <div class="form-group">
-                                <label for="cur_cred">Número de Créditos:</label>
-                                <input type="number" id="cur_cred" name="cur_cred" required>
-                            </div>
+                                <div class="form-group">
+                                    <label for="cur_cred">Número de Créditos:</label>
+                                    <input type="number" id="cur_cred" name="cur_cred" required>
+                                </div>
 
-                            <div class="form-group">
-                                <label for="carr_nom">Carrera Perteneciente:</label>
-                                <select id="carr_nom" name="carr_nom" required>
-                                    <option value="">Seleccione una carrera</option>
-                                    <option value="Economía">Economía</option>
-                                    <option value="Gestión Empresarial">Gestión Empresarial</option>
-                                    <option value="Estadística">Estadística</option>
-                                    <option value="Generales">Cursos Generales</option>
-                                </select>
-                            </div>
+                                <div class="form-group">
+                                    <label for="carr_nom">Carrera Perteneciente:</label>
+                                    <select id="carr_nom" name="carr_nom" required>
+                                        <option value="">Seleccione una carrera</option>
+                                        <!-- Opciones dinámicas se cargarán aquí -->
+                                    </select>
+                                </div>
 
-                            <div class="form-group">
-                                <label for="malla_anio">Malla Perteneciente:</label>
-                                <select id="malla_anio" name="malla_anio" required>
-                                    <option value="">Seleccione una malla</option>
-                                    <option value="2019">Malla 2019</option>
-                                </select>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="ciclo_num">Número de Ciclo:</label>
-                                <input type="number" id="ciclo_num" name="ciclo_num" required>
-                            </div>
+                                <div class="form-group">
+                                    <label for="malla_anio">Malla Perteneciente:</label>
+                                    <select id="malla_anio" name="malla_anio" required>
+                                        <option value="">Seleccione una malla</option>
+                                        <!-- Opciones dinámicas se cargarán aquí -->
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="ciclo_num">Número de Ciclo:</label>
+                                    <input type="number" id="ciclo_num" name="ciclo_num" required>
+                                </div>
 
-                            <button type="submit">Enviar</button>
-                        </form>
+                                <button type="submit">Enviar</button>
+                            </form>
 
-                        <!-- Mensajes de resultado -->
-                        <p id="mensajeEliminar" style="color: green; display: none;"></p>
-                        <p id="errorEliminar" style="color: red; display: none;"></p>
-                    </div>
+                            <!-- Mensajes de resultado -->
+                            <p id="mensajeCrear" style="color: green; display: none;">Curso agregado correctamente.</p>
+                            <p id="errorCrear" style="color: red; display: none;">Error al agregar curso.</p>
+                        </div>
 
                     <div class="right-section">
                         <h3>Otras Opciones</h3>
@@ -260,46 +252,216 @@
                 </div>
             </div>
 
-            <!-- Modal -->
-            <div id="modalModificar" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h2>Modificar Curso</h2>
-                    <form id="formModificarCurso">
-                        <div class="form-group">
-                            <label for="modal_cur_id">Código del Curso:</label>
-                            <input type="text" id="modal_cur_id" name="cur_id"> <!-- Se ha quitado readonly -->
-                        </div>
-                        <div class="form-group">
-                            <label for="modal_cur_nom">Nombre del Curso:</label>
-                            <input type="text" id="modal_cur_nom" name="cur_nom">
-                        </div>
-                        <div class="form-group">
-                            <label for="modal_cur_cred">Número de Créditos:</label>
-                            <input type="text" id="modal_cur_cred" name="cur_cred">
-                        </div>
-                        <div class="form-group">
-                            <label for="modal_malla_id">Año de Malla Curricular:</label>
-                            <select id="modal_malla_id" name="malla_id"></select>
-                        </div>
-                        <div class="form-group">
-                            <label for="modal_ciclo_num">Ciclo:</label>
-                            <input type="text" id="modal_ciclo_num" name="ciclo_num">
-                        </div>
-                        <div class="form-group">
-                            <label for="modal_carr_id">Carrera Perteneciente:</label>
-                            <select id="modal_carr_id" name="carrera_id"></select>
-                        </div>
-                        <div class="form-actions">
-                            <button type="submit">Guardar Cambios</button>
-                            <button type="button" id="btnCancelar">Cancelar</button>
-                        </div>
-                    </form>
-                </div>
+        <!-- Modal -->
+        <div id="modalModificar" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Modificar Curso</h2>
+                <form id="formModificarCurso">
+                    <div class="form-group">
+                        <label for="modal_cur_id">Código del Curso:</label>
+                        <input type="text" id="modal_cur_id" name="cur_id" readonly> <!-- Agregar readonly -->
+                    </div>
+                    <div class="form-group">
+                        <label for="modal_cur_nom">Nombre del Curso:</label>
+                        <input type="text" id="modal_cur_nom" name="cur_nom">
+                    </div>
+                    <div class="form-group">
+                        <label for="modal_cur_cred">Número de Créditos:</label>
+                        <input type="text" id="modal_cur_cred" name="cur_cred">
+                    </div>
+                    <div class="form-group2">
+                        <label for="modal_malla_id">Año de Malla Curricular:</label>
+                        <select id="modal_malla_id" name="malla_id"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal_ciclo_num">Ciclo:</label>
+                        <input type="text" id="modal_ciclo_num" name="ciclo_num">
+                    </div>
+                    <div class="form-group2">
+                        <label for="modal_carr_id">Carrera Perteneciente:</label>
+                        <select id="modal_carr_id" name="carrera_id"></select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" id="btnGuardarCambios">Guardar Cambios</button>
+                        <button type="button" id="btnCancelar">Cancelar</button>
+                    </div>
+                </form>
             </div>
-
         </div>
     </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            // Función para cargar opciones de malla y carrera
+            const cargarOpciones = async () => {
+                try {
+                    const response = await fetch('../config/get_options.php');
+                    const result = await response.json();
+
+                    if (result.error) {
+                        console.error('Error al obtener las opciones:', result.message);
+                        return;
+                    }
+
+                    const mallas = result.data.mallas;
+                    const carreras = result.data.carreras;
+
+                    // Rellenar las opciones de mallas
+                    const mallaSelect = document.getElementById('malla_anio');
+                    mallas.forEach(malla => {
+                        const option = document.createElement('option');
+                        option.value = malla.malla_id;
+                        option.text = malla.malla_anio;
+                        mallaSelect.appendChild(option);
+                    });
+
+                    // Rellenar las opciones de carreras
+                    const carreraSelect = document.getElementById('carr_nom');
+                    carreras.forEach(carrera => {
+                        const option = document.createElement('option');
+                        option.value = carrera.carr_id;
+                        option.text = carrera.carr_nom;
+                        carreraSelect.appendChild(option);
+                    });
+                } catch (error) {
+                    console.error('Error en la solicitud:', error);
+                }
+            };
+
+            // Llamar a la función para cargar las opciones al inicio
+            await cargarOpciones();
+
+            // Manejar el evento de envío del formulario de gestión de cursos
+            document.getElementById('formGestionCursos').onsubmit = async function(event) {
+                event.preventDefault();
+
+                const data = new FormData(this);
+                const errorCrear = document.getElementById('errorCrear');
+
+                // Debug: Log form data
+                for (let [key, value] of data.entries()) {
+                    console.log(`${key}: ${value}`);
+                }
+
+                try {
+                    const response = await fetch(this.action, {
+                        method: 'POST',
+                        body: data
+                    });
+                    const result = await response.json();
+
+                    if (result.error) {
+                        errorCrear.style.display = 'block';
+                        errorCrear.textContent = result.message;
+                    } else {
+                        errorCrear.style.display = 'none';
+                        this.reset(); // Resetear el formulario después de enviar los datos
+                    }
+                } catch (error) {
+                    console.error('Error en la solicitud:', error);
+                    errorCrear.style.display = 'block';
+                    errorCrear.textContent = 'Error al conectar con el servidor.';
+                }
+            };
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            // Función para cargar opciones de malla y carrera
+            const cargarOpciones = async () => {
+                try {
+                    const response = await fetch('../config/get_options.php');
+                    const result = await response.json();
+
+                    if (result.error) {
+                        console.error('Error al obtener las opciones:', result.message);
+                        return;
+                    }
+
+                    const mallas = result.data.mallas;
+                    const mallaSelect = document.getElementById('malla_id');
+
+                    mallas.forEach(malla => {
+                        const option = document.createElement('option');
+                        option.value = malla.malla_id;
+                        option.text = malla.malla_anio;
+                        mallaSelect.appendChild(option);
+                    });
+                } catch (error) {
+                    console.error('Error en la solicitud:', error);
+                }
+            };
+
+            // Llamar a la función para cargar las opciones al inicio
+            await cargarOpciones();
+
+            // Manejar el evento de subir archivo
+            document.getElementById('subirArchivo').onclick = async () => {
+                const form = document.getElementById('formArchivo');
+                const data = new FormData(form);
+
+                try {
+                    const response = await fetch('../config/subir_archivo.php', {
+                        method: 'POST',
+                        body: data
+                    });
+                    const result = await response.json();
+
+                    if (result.error) {
+                        document.getElementById('error').textContent = result.message;
+                        document.getElementById('error').style.display = 'block';
+                        document.getElementById('mensaje').style.display = 'none';
+                    } else {
+                        document.getElementById('mensaje').style.display = 'none';
+                        document.getElementById('error').style.display = 'none';
+                        form.reset(); // Resetear el formulario después de subir el archivo
+                    }
+                } catch (error) {
+                    console.error('Error en la solicitud:', error);
+                    document.getElementById('error').textContent = 'Error al subir el archivo.';
+                    document.getElementById('error').style.display = 'block';
+                    document.getElementById('mensaje').style.display = 'none';
+                }
+            };
+
+            // Manejar el evento de eliminar archivo
+            document.getElementById('formEliminarArchivo').addEventListener('submit', async (e) => {
+                e.preventDefault(); // Evita el envío del formulario tradicional
+
+                const form = new FormData(e.target);
+                const mensajeEliminar = document.getElementById('mensajeEliminar');
+                const errorEliminar = document.getElementById('errorEliminar');
+
+                try {
+                    // Enviar la solicitud al PHP con AJAX
+                    const response = await fetch('../config/eliminar_archivo.php', {
+                        method: 'POST',
+                        body: form
+                    });
+
+                    const result = await response.json();
+
+                    // Si la operación fue exitosa
+                    if (response.ok && !result.error) {
+                        // Limpiar el formulario
+                        e.target.reset();
+                        mensajeEliminar.style.display = 'none';
+                        errorEliminar.style.display = 'none';
+                    } else {
+                        errorEliminar.style.display = 'block';
+                        errorEliminar.textContent = result.message;
+                        mensajeEliminar.style.display = 'none';
+                    }
+                } catch (e) {
+                    errorEliminar.style.display = 'block';
+                    errorEliminar.textContent = 'Error al conectar con el servidor.';
+                    mensajeEliminar.style.display = 'none';
+                }
+            });
+        });
+    </script>
 
     <script>
         document.addEventListener("DOMContentLoaded", async () => {
@@ -488,72 +650,102 @@
         });
     </script>
 
-    <script>
-        // Manejar el envío del formulario de "Subir Archivo"
-        document.getElementById('subirArchivo').addEventListener('click', async () => {
-            const form = document.getElementById('formArchivo');
-            const formData = new FormData(form);
-            const mensaje = document.getElementById('mensaje');
-            const error = document.getElementById('error');
+<!--     <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            // Función para cargar opciones de malla curricular
+            const cargarOpcionesMalla = async () => {
+                try {
+                    const response = await fetch('../config/get_options.php');
+                    const result = await response.json();
 
-            try {
-                const response = await fetch('../config/subir_archivo.php', {
-                    method: 'POST',
-                    body: formData,
-                });
+                    if (result.error) {
+                        console.error('Error al obtener las opciones de malla:', result.message);
+                        return;
+                    }
 
-                const result = await response.text();
-                if (response.ok) {
-                    mensaje.style.display = 'block';
-                    mensaje.textContent = result;
-                    error.style.display = 'none';
-                    form.reset(); // Limpiar el formulario
-                } else {
+                    const mallas = result.data.mallas;
+                    const mallaSelect = document.getElementById('malla_anio');
+
+                    mallas.forEach(malla => {
+                        const option = document.createElement('option');
+                        option.value = malla.malla_anio; // Usar malla_anio en lugar de malla_id
+                        option.text = malla.malla_anio;
+                        mallaSelect.appendChild(option);
+                    });
+                } catch (error) {
+                    console.error('Error en la solicitud:', error);
+                }
+            };
+
+            // Llamar a la función para cargar las opciones al inicio
+            await cargarOpcionesMalla();
+
+            // Manejar el evento de subir archivo
+            document.getElementById('subirArchivo').addEventListener('click', async () => {
+                const form = document.getElementById('formArchivo');
+                const formData = new FormData(form);
+                const mensaje = document.getElementById('mensaje');
+                const error = document.getElementById('error');
+
+                try {
+                    const response = await fetch('../config/subir_archivo.php', {
+                        method: 'POST',
+                        body: formData,
+                    });
+
+                    const result = await response.json();
+                    if (response.ok && !result.error) {
+                        mensaje.style.display = 'block';
+                        mensaje.textContent = result.message;
+                        error.style.display = 'none';
+                        form.reset(); // Limpiar el formulario
+                    } else {
+                        error.style.display = 'block';
+                        error.textContent = result.message;
+                        mensaje.style.display = 'none';
+                    }
+                } catch (e) {
                     error.style.display = 'block';
-                    error.textContent = result;
+                    error.textContent = 'Error al conectar con el servidor.';
                     mensaje.style.display = 'none';
                 }
-            } catch (e) {
-                error.style.display = 'block';
-                error.textContent = 'Error al conectar con el servidor.';
-                mensaje.style.display = 'none';
-            }
-        });
+            });
 
-        // Manejar el envío del formulario de "Eliminar Archivo"
-        document.getElementById('formEliminarArchivo').addEventListener('submit', async (e) => {
-            e.preventDefault(); // Evita el envío del formulario tradicional
+            // Manejar el evento de eliminar archivo
+            document.getElementById('formEliminarArchivo').addEventListener('submit', async (e) => {
+                e.preventDefault(); // Evita el envío del formulario tradicional
 
-            const form = new FormData(e.target);
-            const mensajeEliminar = document.getElementById('mensajeEliminar');
-            const errorEliminar = document.getElementById('errorEliminar');
+                const form = new FormData(e.target);
+                const mensajeEliminar = document.getElementById('mensajeEliminar');
+                const errorEliminar = document.getElementById('errorEliminar');
 
-            try {
-                // Enviar la solicitud al PHP con AJAX
-                const response = await fetch('../config/eliminar_archivo.php', {
-                    method: 'POST',
-                    body: form
-                });
+                try {
+                    // Enviar la solicitud al PHP con AJAX
+                    const response = await fetch('../config/eliminar_archivo.php', {
+                        method: 'POST',
+                        body: form
+                    });
 
-                const result = await response.text();
+                    const result = await response.json();
 
-                // Si la operación fue exitosa
-                if (response.ok) {
-                    mensajeEliminar.style.display = 'block';
-                    mensajeEliminar.textContent = result;
-                    errorEliminar.style.display = 'none';
-                    e.target.reset(); // Limpiar el formulario
-                } else {
+                    // Si la operación fue exitosa
+                    if (response.ok && !result.error) {
+                        mensajeEliminar.style.display = 'block';
+                        mensajeEliminar.textContent = result.message;
+                        errorEliminar.style.display = 'none';
+                        e.target.reset(); // Limpiar el formulario
+                    } else {
+                        errorEliminar.style.display = 'block';
+                        errorEliminar.textContent = result.message;
+                        mensajeEliminar.style.display = 'none';
+                    }
+                } catch (e) {
                     errorEliminar.style.display = 'block';
-                    errorEliminar.textContent = result;
+                    errorEliminar.textContent = 'Error al conectar con el servidor.';
                     mensajeEliminar.style.display = 'none';
                 }
-            } catch (e) {
-                errorEliminar.style.display = 'block';
-                errorEliminar.textContent = 'Error al conectar con el servidor.';
-                mensajeEliminar.style.display = 'none';
-            }
+            });
         });
-    </script>
+    </script> -->
 </body>
 </html>

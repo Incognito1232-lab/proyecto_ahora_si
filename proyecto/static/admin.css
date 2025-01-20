@@ -154,7 +154,7 @@ main {
 
 .bottom-sections .bottom-left select,
 .bottom-sections .bottom-right select {
-    width: 100%;
+    width: 101%;
     padding: 5px;
     border: 1px solid var(--border-color);
     border-radius: 6px;
@@ -424,24 +424,32 @@ main {
     margin-bottom: 20px;
 }
 
-.modal-content .form-group {
+.modal-content .form-group,
+.modal-content .form-group2 {
     margin-bottom: 15px;
 }
 
-.modal-content .form-group label {
+.modal-content .form-group label,
+.modal-content .form-group2 label {
     font-weight: bold;
 }
 
-.modal-content .form-group input {
+.modal-content .form-group input,
+.modal-content .form-group2 select {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
     border: 1px solid #ddd;
     border-radius: 4px;
     box-sizing: border-box;
+    background-color: var(--form-background);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 16px;
+    color: var(--text-color);
 }
 
-.modal-content .form-group input:focus {
+.modal-content .form-group input:focus,
+.modal-content .form-group2 select:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 8px rgba(0, 86, 210, 0.3);
     outline: none;
@@ -464,7 +472,7 @@ main {
 }
 
 .modal-content button:hover {
-    background-color: var(--primary-color-dark);
+    background-color: var(--primary-hover-color);
 }
 
 /* Estilo del botón de cancelar */
