@@ -1,17 +1,17 @@
 /* Variables de diseño */
 :root {
-    --primary-color: #FF6F00; /* Anaranjado */
-    --primary-hover-color: #FF4500; /* Anaranjado más oscuro para hover */
+    --primary-color: #E68329; /* Naranja */
+    --primary-hover-color: #E66229; /* Naranja más oscuro para hover */
     --background-color: #F3F6FA; /* Fondo claro */
-    --text-color: #333333; /* Texto oscuro */
+    --text-color: #000000; /* Texto oscuro */
     --form-background: #FFFFFF; /* Fondo del formulario */
     --border-color: #CCCCCC; /* Bordes suaves */
-    --font-family: 'Comic Neue', sans-serif; /* Fuente 'Comic Neue' */
+    --font-family: 'Roboto', sans-serif; /* Fuente Roboto */
     --shadow-color: rgba(0, 0, 0, 0.1); /* Sombra ligera */
 }
 
-/* Asegurarse de que la fuente 'Comic Neue' se aplique correctamente */
-@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+/* Asegurarse de que la fuente 'Roboto' se aplique correctamente */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 /* Estilo base */
 body {

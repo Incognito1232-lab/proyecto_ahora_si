@@ -1,18 +1,19 @@
 /* Variables de diseño */
 :root {
-    --primary-color: #FF7F00; /* Naranja */
-    --primary-hover-color: #F56B00; /* Naranja más oscuro para hover */
+    --primary-color: #E68329; /* Naranja */
+    --primary-hover-color: #E66229; /* Naranja más oscuro para hover */
     --background-color: #FFFFFF; /* Fondo blanco para el cuerpo */
-    --text-color: #333333; /* Texto negro */
-    --card-background: #FF7F00; /* Fondo de las cajas */
+    --text-color: #000000; /* Texto negro */
+    --card-background: #E68329; /* Fondo de las cajas */
     --shadow-color: rgba(0, 0, 0, 0.1); /* Sombras ligeras */
-    --font-family: 'Comic Neue', sans-serif; /* Tipografía Comic Neue */
+    --font-family: 'Roboto', sans-serif; /* Tipografía Roboto */
 }
 
 /* Estilo base */
 body {
     font-family: var(--font-family);
     background-color: var(--background-color);
+    color: var(--text-color);
     margin: 0;
     padding: 0;
     display: flex;
@@ -24,7 +25,7 @@ body {
 /* Barra de navegación */
 .navbar {
     width: 100%;
-    background-color: #333333; /* Barra de navegación en negro */
+    background-color: #000000; /* Barra de navegación en negro */
     color: #FFFFFF;
     padding: 20px;
     text-align: center;
@@ -57,7 +58,7 @@ body {
     background-color: var(--card-background);
     border-radius: 12px;
     text-decoration: none;
-    color: var(--text-color);
+    color: #FFFFFF; /* Texto blanco en las cajas */
     font-size: 20px;
     font-weight: 600;
     text-align: center;
@@ -161,4 +162,3 @@ body {
         font-size: 12px;
     }
 }
-    

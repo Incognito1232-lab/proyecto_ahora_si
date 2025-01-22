@@ -6,16 +6,14 @@
     <title>Index</title>
     <link rel="stylesheet" href="../static/index.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Barra de navegación -->
     <div class="navbar">
-        <!-- Sección izquierda: texto "E y P" -->
         <div class="navbar-left">
             <i class="fas fa-chart-line"></i> E y P
         </div>
-        <!-- Sección derecha: enlaces -->
         <div class="navbar-right">
             <a href="../Material/material.html"><i class="fas fa-book"></i> MATERIAL</a>
             <a href="../material/recomendaciones.html"><i class="fas fa-lightbulb"></i> RECOMENDACIONES</a>
@@ -23,9 +21,71 @@
         </div>
     </div>
 
-    <!-- Contenedor principal vacío -->
-    <div class="main-content">
-        <!-- Espacio vacío para contenido futuro -->
+    <!-- Sección de introducción -->
+    <section class="intro">
+        <div class="intro-content">
+            <h1>Bienvenidos a E y P</h1>
+            <p>En E y P, proporcionamos recursos educativos y recomendaciones para ayudarte en tu formación profesional. Explora nuestro material y mejora tus conocimientos.</p>
+        </div>
+    </section>
+
+    <!-- Sección de objetivos -->
+    <section class="objectives">
+        <h2>Objetivos</h2>
+        <p>Nuestro objetivo es ofrecer materiales de estudio de alta calidad y proporcionar recomendaciones útiles para tu desarrollo académico y profesional.</p>
+        <ul>
+            <li>Acceso a materiales educativos diversificados.</li>
+            <li>Orientación y recomendaciones personalizadas.</li>
+            <li>Plataforma interactiva y fácil de usar.</li>
+        </ul>
+    </section>
+
+    <!-- Sección de preguntas frecuentes -->
+    <section class="faq">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="faq-item">
+            <h3>¿Qué tipo de materiales puedo encontrar aquí?</h3>
+            <p>Ofrecemos una variedad de materiales educativos, incluyendo libros, artículos, videos y más, relacionados con diferentes áreas de estudio.</p>
+        </div>
+        <div class="faq-item">
+            <h3>¿Cómo puedo acceder a los materiales?</h3>
+            <p>Puedes acceder a los materiales navegando a la sección de <a href="../Material/material.html">Material</a> y seleccionando tu área de interés.</p>
+        </div>
+        <div class="faq-item">
+            <h3>¿Puedo contribuir con material?</h3>
+            <p>Sí, estamos abiertos a contribuciones. Contáctanos a través de la sección de contacto para más información.</p>
+        </div>
+    </section>
+
+    <!-- Sección de contacto -->
+    <section class="contact">
+        <h2>Contacto</h2>
+        <p>Si tienes alguna pregunta o necesitas más información, no dudes en contactarnos.</p>
+        <form action="submit_contact_form.php" method="POST">
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2023 E y P. Todos los derechos reservados.</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
     </div>
 </body>
 </html>
