@@ -12,7 +12,8 @@
     <!-- Barra de navegación -->
     <div class="navbar">
         <div class="navbar-left">
-            <i class="fas fa-chart-line"></i> E y P
+            <img src="../static/img/logoeyp.png" alt="Logo de la Facultad de Economía y Planificación" style="height: 40px; vertical-align: middle;"> 
+            Facultad de Economía y Planificación
         </div>
         <div class="navbar-right">
             <a href="../Material/material.html"><i class="fas fa-book"></i> MATERIAL</a>
@@ -23,10 +24,31 @@
 
     <!-- Sección de introducción -->
     <section class="intro">
-        <div class="intro-content">
-            <h1>Bienvenidos a E y P</h1>
-            <p>En E y P, proporcionamos recursos educativos y recomendaciones para ayudarte en tu formación profesional. Explora nuestro material y mejora tus conocimientos.</p>
-        </div>
+        <ul id="carousel">
+            <li>
+                <img src="../static/img/introduccion1.jpg" alt="">
+                <div class="text">
+                    <h2>Imagen 1</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam hic pariatur labore minus velit voluptatum maxime magni. Alias voluptatibus voluptatum commodi minus quia perferendis natus quaerat dolorum. Nisi, neque fugiat!</p> 
+                </div>
+            </li>
+            <li>
+                <img src="../static/img/introduccion2.jpg" alt="">
+                <div class="text">
+                    <h2>Imagen 2</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, animi soluta. Quidem tempora aperiam necessitatibus incidunt et sint ab rem, voluptatem qui doloribus nulla dolore quibusdam ratione voluptatibus repellendus molestias.</p> 
+                </div>
+            </li>
+            <li>
+                <img src="../static/img/introduccion3.jpg" alt="">
+                <div class="text">
+                    <h2>Imagen 3</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum corrupti, quam saepe, magnam numquam asperiores itaque temporibus iste, non assumenda provident ipsam recusandae possimus cupiditate natus illum perferendis illo enim!</p> 
+                </div>
+            </li>
+        </ul>
+        <div class="prev" onclick="moveSlide(-1)">&#10094;</div>
+        <div class="next" onclick="moveSlide(1)">&#10095;</div>
     </section>
 
     <!-- Sección de objetivos -->
@@ -87,5 +109,7 @@
             <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
     </div>
+
+    <script src="../static/script/index.js"></script>
 </body>
 </html>

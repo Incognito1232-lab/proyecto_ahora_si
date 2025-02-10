@@ -3,14 +3,19 @@
 *::before,
 *::after {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     margin: 0;
+    padding: 0;
     font-family: 'Roboto', sans-serif;
     background-color: #ffffff; /* Fondo blanco */
     color: #333;
     line-height: 1.6;
+    width: 100%;
+    height: 100%;
 }
 
 /* Navbar styles */
@@ -18,8 +23,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #000000;
-    color: #fff;
+    background-color: #ffffff; /* Cambiar a blanco */
+    color: #000000; /* Cambiar el color del texto a negro */
     padding: 20px 40px;
     position: fixed;
     top: 0;
@@ -35,11 +40,11 @@ body {
     font-weight: 700;
     display: flex;
     align-items: center;
-    gap: 10px; /* Espacio entre el icono y el texto */
+    gap: 10px; /* Espacio entre el logo y el texto */
 }
 
-.navbar-left i {
-    color: #E68329;
+.navbar-left img {
+    height: 50px; /* Aumentar el tamaño del logo */
 }
 
 .navbar-right {
@@ -49,7 +54,7 @@ body {
 }
 
 .navbar-right a {
-    color: #ffffff;
+    color: #000000; /* Cambiar el color de los enlaces a negro */
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
@@ -61,11 +66,9 @@ body {
 }
 
 .navbar-right a:hover {
-    color: #E68329;
+    color: #E68329; /* Color al pasar el mouse */
     transform: scale(1.1);
-}
-
-/* Section styles */
+}/* Section styles */
 section {
     padding: 60px 20px;
     text-align: center;
@@ -79,41 +82,90 @@ section h2 {
 
 /* Introduction section */
 .intro {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
     position: relative;
-    background: url('../static/img/facultad-eyp.jpg') no-repeat center center;
-    background-size: cover;
-    color: #fff;
-    padding: 120px 20px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
-.intro::before {
-    content: "";
+.intro ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    width: 300%; /* Si hay 3 imágenes, usar 300% */
+    list-style: none;
+    transition: transform 0.5s ease; /* Transición suave */
+}
+
+.intro li {
+    width: 100vw; /* Cada imagen ocupa el 100% del ancho de la ventana */
+    flex-shrink: 0;
+    position: relative;
+}
+
+.intro img {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.text {
+    position: absolute;
+    text-align: left; /* Alinear texto a la izquierda */
+    padding: 20px; /* Espaciado alrededor del texto */
+    top: 50%; /* Centra verticalmente */
+    left: 110px; /* Alinea el texto a la izquierda con un margen */
+    transform: translateY(-50%); /* Ajusta la posición verticalmente */
+    color: #ffffff;
+    z-index: 1; /* Asegúrate de que el texto esté por encima de la imagen */
+}
+
+.text h2 {
+    font-size: 45px;
+    margin-bottom: 10px; /* Espacio entre el h2 y el párrafo */
+    color: #ffffff;
+}
+
+.text p {
+    font-size: 18px; /* Ajusta el tamaño del texto del párrafo */
+    margin: 0; /* Elimina el margen por defecto */
+    max-width: 500px; /* Ajusta el ancho máximo según sea necesario */
+    overflow-wrap: break-word; /* Permite que las palabras largas se dividan */
+    line-height: 1.5; /* Espaciado entre líneas para mejor legibilidad */
+}
+
+.intro li::before {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Sombra para hacer resaltar el texto */
-    z-index: 1;
+    background: linear-gradient(to right, rgba(35, 33, 47, 0.8), rgba(35, 33, 47, 0)); /* Degradado con el color especificado */
+    z-index: 0; /* Asegúrate de que el degradado esté detrás del texto */
 }
 
-.intro-content {
-    position: relative;
-    z-index: 2;
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px 15px; /* Ajusta el padding para un mejor tamaño */
+    cursor: pointer;
+    z-index: 10;
+    font-size: 24px; /* Tamaño del icono */
 }
 
-.intro h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
+.prev {
+    left: 30px; /* Ajusta la distancia desde el borde izquierdo */
 }
 
-.intro p {
-    font-size: 1.5rem;
-    margin-bottom: 30px;
+.next {
+    right: 30px; /* Ajusta la distancia desde el borde derecho */
 }
 
 /* Objectives section */
@@ -260,3 +312,4 @@ button[type="submit"]:hover {
         font-size: 1.5rem;
     }
 }
+
