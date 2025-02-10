@@ -51,53 +51,81 @@
         <div class="next" onclick="moveSlide(1)">&#10095;</div>
     </section>
 
-    <!-- Sección de objetivos -->
+    <!-- Sección de Novedades -->
+    <section class="novedades">
+        <h2>Novedades</h2>
+        <div class="novedades-container">
+            <div class="novedad">
+                <img src="../static/img/novedad1.jpg" alt="Novedad 1">
+                <h3>Título de Novedad 1</h3>
+                <p>Descripción breve de la novedad 1.</p>
+                <div class="novedad-info" style="display: none;">
+                    <p>Aquí va la información adicional sobre la novedad 1. Puedes incluir más detalles, imágenes o enlaces relevantes.</p>
+                </div>
+                <a href="javascript:void(0);" class="leer-mas" onclick="toggleNovedad(this)">Leer más</a>
+            </div>
+            <div class="novedad">
+                <img src="../static/img/novedad2.jpg" alt="Novedad 2">
+                <h3>Título de Novedad 2</h3>
+                <p>Descripción breve de la novedad 2.</p>
+                <div class="novedad-info" style="display: none;">
+                    <p>Aquí va la información adicional sobre la novedad 2. Puedes incluir más detalles, imágenes o enlaces relevantes.</p>
+                </div>
+                <a href="javascript:void(0);" class="leer-mas" onclick="toggleNovedad(this)">Leer más</a>
+            </div>
+            <div class="novedad">
+                <img src="../static/img/novedad3.jpg" alt="Novedad 3">
+                <h3>Título de Novedad 3</h3>
+                <p>Descripción breve de la novedad 3.</p>
+                <div class="novedad-info" style="display: none;">
+                    <p>Aquí va la información adicional sobre la novedad 3. Puedes incluir más detalles, imágenes o enlaces relevantes.</p>
+                </div>
+                <a href="javascript:void(0);" class="leer-mas" onclick="toggleNovedad(this)">Leer más</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Objetivos -->
     <section class="objectives">
         <h2>Objetivos</h2>
         <p>Nuestro objetivo es ofrecer materiales de estudio de alta calidad y proporcionar recomendaciones útiles para tu desarrollo académico y profesional.</p>
-        <ul>
-            <li>Acceso a materiales educativos diversificados.</li>
-            <li>Orientación y recomendaciones personalizadas.</li>
-            <li>Plataforma interactiva y fácil de usar.</li>
-        </ul>
+        <div class="objectives-container">
+            <div class="objective-card">
+                <h3>Acceso a Materiales Educativos</h3>
+                <p>Proporcionar acceso a una amplia gama de materiales educativos diversificados que se adapten a diferentes estilos de aprendizaje.</p>
+            </div>
+            <div class="objective-card">
+                <h3>Orientación Personalizada</h3>
+                <p>Ofrecer orientación y recomendaciones personalizadas para ayudar a los estudiantes a alcanzar sus metas académicas y profesionales.</p>
+            </div>
+            <div class="objective-card">
+                <h3>Plataforma Interactiva</h3>
+                <p>Desarrollar una plataforma interactiva y fácil de usar que facilite el acceso a recursos y fomente la participación activa de los usuarios.</p>
+            </div>
+        </div>
     </section>
 
-    <!-- Sección de preguntas frecuentes -->
+    <!-- Sección de Preguntas Frecuentes -->
     <section class="faq">
         <h2>Preguntas Frecuentes</h2>
-        <div class="faq-item">
-            <h3>¿Qué tipo de materiales puedo encontrar aquí?</h3>
-            <p>Ofrecemos una variedad de materiales educativos, incluyendo libros, artículos, videos y más, relacionados con diferentes áreas de estudio.</p>
+        <div class="faq-container">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="question"><h3>¿Qué tipo de materiales puedo encontrar aquí?</h3></td>
+                        <td class="answer"><p>Ofrecemos una variedad de materiales educativos, incluyendo libros, artículos, videos y más, relacionados con diferentes áreas de estudio.</p></td>
+                    </tr>
+                    <tr>
+                        <td class="question"><h3>¿Cómo puedo acceder a los materiales?</h3></td>
+                        <td class="answer"><p>Puedes acceder a los materiales navegando a la sección de <a href="../Material/material.html">Material</a> y seleccionando tu área de interés.</p></td>
+                    </tr>
+                    <tr>
+                        <td class="question"><h3>¿Puedo contribuir con material?</h3></td>
+                        <td class="answer"><p>Sí, estamos abiertos a contribuciones. Contáctanos a través de la sección de contacto para más información.</p></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="faq-item">
-            <h3>¿Cómo puedo acceder a los materiales?</h3>
-            <p>Puedes acceder a los materiales navegando a la sección de <a href="../Material/material.html">Material</a> y seleccionando tu área de interés.</p>
-        </div>
-        <div class="faq-item">
-            <h3>¿Puedo contribuir con material?</h3>
-            <p>Sí, estamos abiertos a contribuciones. Contáctanos a través de la sección de contacto para más información.</p>
-        </div>
-    </section>
-
-    <!-- Sección de contacto -->
-    <section class="contact">
-        <h2>Contacto</h2>
-        <p>Si tienes alguna pregunta o necesitas más información, no dudes en contactarnos.</p>
-        <form action="submit_contact_form.php" method="POST">
-            <div class="form-group">
-                <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Mensaje:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-            <button type="submit">Enviar</button>
-        </form>
     </section>
 
     <!-- Footer -->

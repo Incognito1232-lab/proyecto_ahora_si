@@ -168,88 +168,184 @@ section h2 {
     right: 30px; /* Ajusta la distancia desde el borde derecho */
 }
 
+/* News section */
+.novedades {
+    padding: 40px 20px;
+    background-color: #f9f9f9; /* Color de fondo claro */
+    text-align: center;
+    margin-top: 50px; /* Espacio entre la sección de introducción y novedades */
+}
+
+.novedades h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333; /* Color del título */
+}
+
+.novedades-container {
+    display: flex;
+    justify-content: space-around; /* Espacio entre las tarjetas */
+    flex-wrap: wrap; /* Permite que las tarjetas se ajusten en varias filas */
+}
+
+.novedad {
+    background-color: #ffffff; /* Fondo blanco para las tarjetas */
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    width: 300px; /* Ancho fijo para las tarjetas */
+    margin: 10px; /* Espacio entre tarjetas */
+    padding: 20px; /* Espaciado interno */
+    transition: transform 0.3s; /* Transición suave al pasar el mouse */
+}
+
+.novedad img {
+    width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+    height: 200px; /* Establece una altura fija para todas las imágenes */
+    object-fit: cover; /* Cubre el área del contenedor, recortando si es necesario */
+    border-radius: 8px; /* Bordes redondeados para las imágenes */
+}
+
+.novedad-info {
+    margin-top: 10px; /* Espacio entre la descripción y la información adicional */
+    color: #333; /* Color del texto de la información adicional */
+    font-size: 0.9rem; /* Tamaño de fuente más pequeño para la información adicional */
+}
+
+.novedad h3 {
+    font-size: 1.5rem;
+    margin: 15px 0 10px; /* Espaciado entre el título y la descripción */
+}
+
+.novedad p {
+    font-size: 1rem;
+    color: #666; /* Color del texto de la descripción */
+}
+
+.leer-mas {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #E68329; /* Color del botón */
+    color: white; /* Color del texto del botón */
+    text-decoration: none; /* Sin subrayado */
+    border-radius: 5px; /* Bordes redondeados para el botón */
+    transition: background-color 0.3s; /* Transición suave para el botón */
+}
+
+.leer-mas:hover {
+    background-color: #d57224; /* Color del botón al pasar el mouse */
+}
+
+.novedad:hover {
+    transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+}
+
 /* Objectives section */
-.objectives ul {
-    list-style: none;
-    padding: 0;
+.objectives {
+    padding: 40px 20px;
+    background-color: #f9f9f9; /* Color de fondo claro */
+    margin-top: 50px; /* Espacio entre la sección de introducción y novedades */
+    text-align: center;
 }
 
-.objectives li {
-    font-size: 1.125rem;
-    margin-bottom: 10px;
-    padding-left: 1.5em;
-    position: relative;
+.objectives h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333; /* Color del título */
 }
 
-.objectives li::before {
-    content: "\f0da"; /* FontAwesome icon */
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    position: absolute;
-    left: 0;
-    color: #E68329;
-    font-size: 1.25rem;
+.objectives p {
+    font-size: 1.2rem;
+    color: #555; /* Color del texto */
+    margin-bottom: 30px; /* Espacio debajo del párrafo */
+}
+
+.objectives-container {
+    display: flex;
+    justify-content: space-around; /* Espacio entre las tarjetas */
+    flex-wrap: wrap; /* Permite que las tarjetas se ajusten en varias filas */
+}
+
+.objective-card {
+    background-color: #ffffff; /* Fondo blanco para las tarjetas */
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    width: 300px; /* Ancho fijo para las tarjetas */
+    margin: 10px; /* Espacio entre tarjetas */
+    padding: 20px; /* Espaciado interno */
+    transition: transform 0.3s; /* Transición suave al pasar el mouse */
+}
+
+.objective-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px; /* Espacio entre el título y la descripción */
+    color: #E68329; /* Color del título de la tarjeta */
+}
+
+.objective-card p {
+    font-size: 1rem;
+    color: #666; /* Color del texto de la descripción */
+}
+
+.objective-card:hover {
+    transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
 }
 
 /* FAQ section */
-.faq-item {
+.faq {
+    padding: 40px 20px;
+    background-color: #f9f9f9; /* Color de fondo claro */
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.faq h2 {
+    font-size: 2.5rem;
     margin-bottom: 20px;
+    color: #333; /* Color del título */
 }
 
-.faq-item h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #E68329;
-}
-
-/* Contact section */
-.contact form {
-    max-width: 600px;
-    margin: 0 auto;
+.faq-container {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    justify-content: center; /* Centra la tabla */
 }
 
-.form-group {
-    text-align: left;
+table {
+    width: 80%; /* Ancho de la tabla */
+    border-collapse: collapse; /* Elimina el espacio entre celdas */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    border-radius: 8px; /* Bordes redondeados */
+    overflow: hidden; /* Para que los bordes redondeados se apliquen */
 }
 
-.form-group label {
-    font-size: 1rem;
-    margin-bottom: 5px;
-    display: block;
+th, td {
+    padding: 15px; /* Espaciado interno */
+    text-align: left; /* Alinear texto a la izquierda */
 }
 
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #CCCCCC;
-    border-radius: 6px;
-    font-size: 1rem;
+.question {
+    background-color: #E68329; /* Color de fondo para las preguntas */
+    color: white; /* Color del texto de las preguntas */
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: #E68329;
-    outline: none;
+.answer {
+    background-color: #ffffff; /* Color de fondo para las respuestas */
 }
 
-button[type="submit"] {
-    padding: 10px 20px;
-    font-size: 1.125rem;
-    color: #fff;
-    background-color: #E68329;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+.answer p {
+    margin: 0; /* Elimina el margen por defecto */
 }
 
-button[type="submit"]:hover {
-    background-color: #E66229;
-    transform: scale(1.05);
+a {
+    color: #E68329; /* Color del enlace */
+    text-decoration: underline; /* Subrayado para los enlaces */
+}
+
+a:hover {
+    color: #d57224; /* Color del enlace al pasar el mouse */
 }
 
 /* Footer styles */

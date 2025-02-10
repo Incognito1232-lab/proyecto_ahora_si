@@ -29,3 +29,14 @@ setInterval(() => {
 
 // Muestra la primera imagen al cargar
 showSlide(currentSlide);
+
+function toggleNovedad(button) {
+    const info = button.previousElementSibling; // Selecciona el contenedor de información adicional
+    if (info.style.display === "none" || info.style.display === "") {
+        info.style.display = "block"; // Muestra la información adicional
+        button.textContent = "Leer menos"; // Cambia el texto del botón
+    } else {
+        info.style.display = "none"; // Oculta la información adicional
+        button.textContent = "Leer más"; // Cambia el texto del botón
+    }
+}
