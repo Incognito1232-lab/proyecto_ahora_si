@@ -18,16 +18,26 @@ body {
     height: 100%;
 }
 
+.barra-naranja {
+    height: 8px;
+    background-color: #E68329;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+}
+
 /* Navbar styles */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ffffff; /* Cambiar a blanco */
-    color: #000000; /* Cambiar el color del texto a negro */
+    background-color: #222121e8; /* Cambiar a blanco */
+    color: #ffffff; /* Cambiar el color del texto a negro */
     padding: 20px 40px;
     position: fixed;
-    top: 0;
+    top: 8px;
     left: 0;
     width: 100%;
     z-index: 1000;
@@ -54,7 +64,7 @@ body {
 }
 
 .navbar-right a {
-    color: #000000; /* Cambiar el color de los enlaces a negro */
+    color: #ffffff; /* Cambiar el color de los enlaces a negro */
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
@@ -179,7 +189,7 @@ section h2 {
 .novedades h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #333; /* Color del título */
+    color: #181818; /* Color del título */
 }
 
 .novedades-container {
@@ -406,6 +416,47 @@ a:hover {
 
     section h2 {
         font-size: 1.5rem;
+    }
+}
+
+/* Botón de menú hamburguesa */
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #ffffff; /* negro para que combine con tu navbar */
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+
+    .navbar-right {
+        display: none;
+        flex-direction: column;
+        background-color: #222121e8;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 15px 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        z-index: 999;
+    }
+
+    .navbar-right.show {
+        display: flex;
+    }
+
+    .navbar-right a {
+        color: #ffffff;
+        font-size: 1rem;
+        padding: 8px 0;
     }
 }
 

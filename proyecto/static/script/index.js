@@ -40,3 +40,12 @@ function toggleNovedad(button) {
         button.textContent = "Leer más"; // Cambia el texto del botón
     }
 }
+// Botón de menú hamburguesa //
+document.addEventListener("DOMContentLoaded", function () {
+    const toggleBtn = document.getElementById("menu-toggle");
+    const menu = document.getElementById("navbar-right");
+
+    toggleBtn.addEventListener("click", () => {
+        menu.classList.toggle("show");
+    });
+});
