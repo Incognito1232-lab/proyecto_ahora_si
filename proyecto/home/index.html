@@ -95,7 +95,6 @@
     <!-- Sección de Objetivos -->
     <section class="objectives">
         <h2>Objetivos</h2>
-        <p>Nuestro objetivo es ofrecer materiales de estudio de alta calidad y proporcionar recomendaciones útiles para tu desarrollo académico y profesional.</p>
         <div class="objectives-container">
             <div class="objective-card">
                 <h3>Acceso a Materiales Educativos</h3>
@@ -116,22 +115,48 @@
     <section class="faq">
         <h2>Preguntas Frecuentes</h2>
         <div class="faq-container">
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="question"><h3>¿Qué tipo de materiales puedo encontrar aquí?</h3></td>
-                        <td class="answer"><p>Ofrecemos una variedad de materiales educativos, incluyendo libros, artículos, videos y más, relacionados con diferentes áreas de estudio.</p></td>
-                    </tr>
-                    <tr>
-                        <td class="question"><h3>¿Cómo puedo acceder a los materiales?</h3></td>
-                        <td class="answer"><p>Puedes acceder a los materiales navegando a la sección de <a href="../Material/material.html">Material</a> y seleccionando tu área de interés.</p></td>
-                    </tr>
-                    <tr>
-                        <td class="question"><h3>¿Puedo contribuir con material?</h3></td>
-                        <td class="answer"><p>Sí, estamos abiertos a contribuciones. Contáctanos a través de la sección de contacto para más información.</p></td>
-                    </tr>
-                </tbody>
-            </table>
+
+                    <div class="faq-item">
+                        <div class="question" onclick="toggleAnswer(this)">
+                            <h3>¿Qué tipo de materiales puedo encontrar aquí?</h3>
+                            <span class="icon">＋</span>
+                        </div>
+                        <div class="answer">
+                            <p>Ofrecemos una variedad de materiales educativos, incluyendo libros, artículos, videos y más, relacionados con diferentes áreas de estudio.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="question" onclick="toggleAnswer(this)">
+                            <h3>¿Cómo puedo acceder a los materiales?</h3>
+                            <span class="icon">＋</span>
+                        </div>
+                        <div class="answer">
+                            <p>Puedes acceder a los materiales navegando a la sección de <a href="../Material/material.html">Material</a> y seleccionando tu área de interés.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="question" onclick="toggleAnswer(this)">
+                            <h3>¿Puedo contribuir con material?</h3>
+                            <span class="icon">＋</span>
+                        </div>
+                        <div class="answer">
+                            <p>Sí, estamos abiertos a contribuciones. Contáctanos a través de la sección de contacto para más información.</p>
+                        </div>
+                    </div>
+                    <!-- div para los contactos -->
+                    <div class="contact-icons">
+                        <h3>¿No encontraste tu respuesta? Contáctanos:</h3>
+                        <div class="icons-container">
+                            <a href="https://wa.me/TUNUMERO" target="_blank" class="contact-icon whatsapp">
+                                <i class="fab fa-whatsapp"></i>
+                                WhatsApp
+                            </a>
+                            <a href="mailto:tucorreo@dominio.com" class="contact-icon email">
+                                <i class="fas fa-envelope"></i>
+                                Gmail
+                            </a>
+                        </div>
+                    </div>
         </div>
     </section>
 

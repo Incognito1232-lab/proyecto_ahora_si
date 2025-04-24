@@ -49,3 +49,19 @@ document.addEventListener("DOMContentLoaded", function () {
         menu.classList.toggle("show");
     });
 });
+
+// Estilo para preguntas tipo acordeón //
+function toggleAnswer(element) {
+    const answer = element.nextElementSibling;
+    const icon = element.querySelector('.icon');
+    
+    if (answer.style.display === 'none' || !answer.style.display) {
+        // Abrir: mostrar respuesta y cambiar a menos
+        answer.style.display = 'block';
+        icon.textContent = '−'; // Signo menos (unicode)
+    } else {
+        // Cerrar: ocultar respuesta y cambiar a más
+        answer.style.display = 'none';
+        icon.textContent = '+'; // Signo más
+    }
+}
