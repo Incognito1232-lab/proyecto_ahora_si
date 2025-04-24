@@ -1,164 +1,297 @@
-/* Variables de diseño */
+/* Variables de diseño mejoradas */
 :root {
-    --primary-color: #E68329; /* Naranja */
-    --primary-hover-color: #E66229; /* Naranja más oscuro para hover */
-    --background-color: #FFFFFF; /* Fondo blanco para el cuerpo */
-    --text-color: #000000; /* Texto negro */
-    --card-background: #E68329; /* Fondo de las cajas */
-    --shadow-color: rgba(0, 0, 0, 0.1); /* Sombras ligeras */
-    --font-family: 'Roboto', sans-serif; /* Tipografía Roboto */
+    --primary-color: #E68329; /* Naranja principal */
+    --primary-hover-color: #E66229; /* Naranja oscuro para hover */
+    --background-color: #FFFFFF; /* Fondo blanco puro */
+    --text-color: #333333; /* Texto más suave que negro puro */
+    --card-background: #E68329; /* Fondo de tarjetas */
+    --shadow-color: rgba(0, 0, 0, 0.08); /* Sombras más sutiles */
+    --font-family: 'Roboto', sans-serif;
+    --secondary-text: #555555; /* Texto secundario */
+    --section-padding: 80px 20px; /* Espaciado consistente */
+    --transition-time: 0.25s; /* Transiciones más rápidas */
+    --border-radius: 12px; /* Bordes redondeados consistentes */
 }
 
-/* Estilo base */
+/* Estilo base mejorado */
 body {
     font-family: var(--font-family);
     background-color: var(--background-color);
     color: var(--text-color);
     margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 80px 0 0;
     min-height: 100vh;
+    line-height: 1.6;
 }
 
-/* Barra de navegación */
+/* Navbar (manteniendo tu diseño original) */
 .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222121e8;
+    color: #ffffff;
+    padding: 20px 40px;
+    position: fixed;
+    top: 8px;
+    left: 0;
     width: 100%;
-    background-color: #000000; /* Barra de navegación en negro */
-    color: #FFFFFF;
-    padding: 20px;
-    text-align: center;
-    font-size: 26px;
-    font-weight: 600;
-    text-transform: uppercase;
-    box-shadow: 0px 4px 6px var(--shadow-color);
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
-/* Contenedor de carreras */
-.career-container {
+.navbar-left {
+    font-size: 2rem;
+    font-weight: 700;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar-left img {
+    height: 50px;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.navbar-right a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: color var(--transition-time) ease-in-out, transform var(--transition-time) ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar-right a:hover {
+    color: #E68329;
+    transform: scale(1.1);
+}
+
+/* Secciones mejoradas */
+section {
+    padding: var(--section-padding);
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+section p.subtitle {
+    color: var(--secondary-text);
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+/* Contenedor de carreras mejorado */
+.career-container {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 30px;
-    margin: 40px 20px;
     padding: 20px;
     width: 100%;
     box-sizing: border-box;
 }
 
-/* Caja de cada carrera */
+/* Caja de carrera más elegante */
 .career-box {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 250px; /* Tamaño más grande */
-    height: 200px; /* Altura ajustada */
+    width: 100%;
+    height: 220px;
     background-color: var(--card-background);
-    border-radius: 12px;
+    border-radius: var(--border-radius);
     text-decoration: none;
-    color: #FFFFFF; /* Texto blanco en las cajas */
-    font-size: 20px;
+    color: #FFFFFF;
+    font-size: 1.2rem;
     font-weight: 600;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 8px var(--shadow-color);
+    transition: all var(--transition-time) ease;
+    box-shadow: 0 4px 12px var(--shadow-color);
     position: relative;
+    overflow: hidden;
+}
+
+.career-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 60%);
+    z-index: 1;
 }
 
 .career-box i {
-    font-size: 56px; /* Iconos más grandes */
+    font-size: 3.5rem;
     color: #FFFFFF;
     margin-bottom: 15px;
+    z-index: 2;
+    transition: transform var(--transition-time) ease;
+}
+
+.career-box span {
+    z-index: 2;
+    padding: 0 15px;
 }
 
 .career-box:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px var(--shadow-color);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-/* Botón de retroceso */
+.career-box:hover i {
+    transform: scale(1.1);
+}
+
+/* Botón de retroceso mejorado */
 .back-button-container {
-    margin-top: 30px;
+    margin-top: 50px;
     text-align: center;
 }
 
 .back-button {
-    display: inline-block;
-    padding: 12px 25px;
-    font-size: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    font-size: 1rem;
     font-weight: 600;
     color: #FFFFFF;
     background-color: var(--primary-color);
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: all var(--transition-time) ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+    cursor: pointer;
+    gap: 8px;
+}
+
+.back-button i {
+    transition: transform var(--transition-time) ease;
 }
 
 .back-button:hover {
     background-color: var(--primary-hover-color);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.back-button:hover i {
+    transform: translateX(-3px);
 }
 
 .back-button:active {
     transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Adaptabilidad para pantallas pequeñas */
+/* Efecto de onda al hacer hover (opcional) */
+.career-box:hover::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+    animation: ripple 1s ease-out;
+    z-index: 1;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(20, 20);
+        opacity: 0;
+    }
+}
+
+/* Adaptabilidad mejorada */
 @media (max-width: 1024px) {
-    .career-box {
-        width: 220px; /* Ajuste del tamaño en tablets */
-        height: 180px;
+    .career-container {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     }
-
-    .career-box i {
-        font-size: 48px;
-    }
-
-    .navbar {
-        font-size: 24px;
-    }
-
-    .back-button {
-        font-size: 16px;
+    
+    section h2 {
+        font-size: 2.2rem;
     }
 }
 
 @media (max-width: 768px) {
-    .career-box {
-        width: 180px; /* Ajuste del tamaño en móviles */
-        height: 150px;
-    }
-
-    .career-box i {
-        font-size: 40px;
-    }
-
     .navbar {
-        font-size: 20px;
+        padding: 15px 20px;
     }
-
-    .back-button {
-        font-size: 14px;
+    
+    .navbar-left {
+        font-size: 1.5rem;
+    }
+    
+    .navbar-left img {
+        height: 40px;
+    }
+    
+    .career-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    
+    section h2 {
+        font-size: 2rem;
     }
 }
 
 @media (max-width: 480px) {
-    .career-box {
-        width: 160px; /* Ajuste aún más en pantallas muy pequeñas */
-        height: 130px;
-    }
-
-    .career-box i {
-        font-size: 36px;
-    }
-
     .navbar {
-        font-size: 18px;
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
     }
-
+    
+    .navbar-left, .navbar-right {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .career-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    section h2 {
+        font-size: 1.8rem;
+    }
+    
     .back-button {
-        font-size: 12px;
+        width: 100%;
+        padding: 12px;
     }
 }
