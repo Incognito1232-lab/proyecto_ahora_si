@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-01-2025 a las 23:28:42
+-- Tiempo de generación: 01-05-2025 a las 19:03:30
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.0.30
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -57,13 +57,6 @@ CREATE TABLE `archivo` (
   `cur_id` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `archivo`
---
-
-INSERT INTO `archivo` (`archivo_id`, `archivo_nom`, `archivo_ruta`, `ciclo_num`, `malla_id`, `cur_id`) VALUES
-(32, 'asdefefa', '../uploads/1.pdf', 2, 1, '123');
-
 -- --------------------------------------------------------
 
 --
@@ -106,10 +99,24 @@ CREATE TABLE `curso` (
 --
 
 INSERT INTO `curso` (`cur_id`, `cur_nom`, `cur_cred`, `malla_id`, `ciclo_num`, `carrera_id`) VALUES
-('1', 'test', 3, 1, 4, 3),
-('123', 'prueba', 6, 2, 4, 1),
-('eqweqe3qaed', 'dqdqwdqwdq', 3, 1, 4, 1),
-('wrgr2gwrg', 'wgwgwgwrgwrg', 4, 1, 3, 1);
+('EP1019', 'Administracion general', 4, 1, 3, 2),
+('EP1054', 'Introducción a la ingeniería en gestión empresaria', 4, 1, 1, 2),
+('EP1056', 'Dibujo de ingeniería ', 4, 1, 2, 2),
+('EP2011', 'Contabilidad general', 4, 1, 4, 2),
+('EP2052', 'Matematica financiera', 4, 1, 3, 2),
+('EP2093', 'Derecho empresarial', 4, 1, 2, 2),
+('EP2096', 'Ingeniería de métodos', 3, 1, 3, 2),
+('EP3034', 'Investigación de operaciones', 4, 1, 4, 2),
+('EP3074', 'Marketing', 4, 1, 4, 2),
+('EP3080', 'Comportamiento y cultura de las organizaciones', 4, 1, 3, 2),
+('EP3192', 'Investigación e inteligencia de mercados', 4, 1, 3, 2),
+('EP3193', 'Historia de la tecnología', 4, 1, 4, 2),
+('EP3196', 'Contabilidad gerencial y de costos', 4, 1, 5, 2),
+('EP3197', 'Gerencia de ventas', 4, 1, 5, 2),
+('EP3198', 'Sistemas de informacion gerencial', 4, 1, 5, 2),
+('EP3200', 'Gestión del talento', 4, 1, 5, 2),
+('EP4059', 'Organización y métodos', 4, 1, 5, 2),
+('EP5029', 'Estadistica aplicada a la economía y los negocios ', 4, 1, 5, 2);
 
 -- --------------------------------------------------------
 
