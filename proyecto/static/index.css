@@ -98,6 +98,7 @@ section h2 {
     position: relative;
     margin: 0;
     padding: 0;
+    margin-bottom: 40px; /* Espacio debajo de la intro (quitar cuando se descomente los objetivos)*/
 }
 
 .intro ul {
@@ -633,3 +634,45 @@ section h2 {
     }
 }
 
+.footer {
+    background-color: #222121e8;
+    color: #ffffff;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 1rem; /* Aumenta ligeramente el tamaño del texto */
+}
+
+.footer h5 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.footer .text-warning {
+    color: #E68329 !important;
+}
+
+.footer .creadores {
+    margin-top: 20px;
+}
+
+.footer .creadores ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer .creadores li {
+    margin-bottom: 5px;
+    font-weight: 400;
+}
+
+.footer .social-icons a {
+    color: #E68329; /* Naranja */
+    margin-right: 20px;
+    font-size: 2rem; /* Más grandes */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer .social-icons a:hover {
+    color: #ffffff; /* Cambia a blanco al pasar el mouse */
+    transform: scale(1.2); /* Ligeramente más grande al pasar el mouse */
+}
